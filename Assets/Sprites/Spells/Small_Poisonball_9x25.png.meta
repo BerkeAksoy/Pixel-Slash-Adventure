@@ -1,0 +1,1679 @@
+fileFormatVersion: 2
+guid: 420c5b0aadfd1ed4abc993e86af67e98
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4070014318422356730
+    second: Small_Poisonball_9x25_0
+  - first:
+      213: 3024276905959904431
+    second: Small_Poisonball_9x25_1
+  - first:
+      213: -4345329899572161259
+    second: Small_Poisonball_9x25_2
+  - first:
+      213: -6009685145883373608
+    second: Small_Poisonball_9x25_3
+  - first:
+      213: 2754213230342450466
+    second: Small_Poisonball_9x25_4
+  - first:
+      213: 465781789226888222
+    second: Small_Poisonball_9x25_5
+  - first:
+      213: 1273926997728661254
+    second: Small_Poisonball_9x25_6
+  - first:
+      213: 7660259402994342497
+    second: Small_Poisonball_9x25_7
+  - first:
+      213: -338547594775147254
+    second: Small_Poisonball_9x25_8
+  - first:
+      213: 9033577268051976958
+    second: Small_Poisonball_9x25_9
+  - first:
+      213: 193403465521689561
+    second: Small_Poisonball_9x25_10
+  - first:
+      213: -6244918223101956936
+    second: Small_Poisonball_9x25_11
+  - first:
+      213: 1525826579694951773
+    second: Small_Poisonball_9x25_12
+  - first:
+      213: 4105402212774837069
+    second: Small_Poisonball_9x25_13
+  - first:
+      213: 5518941155840152819
+    second: Small_Poisonball_9x25_14
+  - first:
+      213: 6502537136299404108
+    second: Small_Poisonball_9x25_15
+  - first:
+      213: 3586963218815667664
+    second: Small_Poisonball_9x25_16
+  - first:
+      213: 7286751842307075278
+    second: Small_Poisonball_9x25_17
+  - first:
+      213: -3551826744658899324
+    second: Small_Poisonball_9x25_18
+  - first:
+      213: 6348971087803699135
+    second: Small_Poisonball_9x25_19
+  - first:
+      213: 6992442695068795466
+    second: Small_Poisonball_9x25_20
+  - first:
+      213: 1044782018513405183
+    second: Small_Poisonball_9x25_21
+  - first:
+      213: 1458984486150540593
+    second: Small_Poisonball_9x25_22
+  - first:
+      213: -632752387849626694
+    second: Small_Poisonball_9x25_23
+  - first:
+      213: 887293101361235934
+    second: Small_Poisonball_9x25_24
+  - first:
+      213: 8969874186900399096
+    second: Small_Poisonball_9x25_25
+  - first:
+      213: 4822893952559111921
+    second: Small_Poisonball_9x25_26
+  - first:
+      213: 6356473090214730200
+    second: Small_Poisonball_9x25_27
+  - first:
+      213: -3006350445792936480
+    second: Small_Poisonball_9x25_28
+  - first:
+      213: -4781249399589163939
+    second: Small_Poisonball_9x25_29
+  - first:
+      213: -3580667207465430947
+    second: Small_Poisonball_9x25_30
+  - first:
+      213: -5988308570766115084
+    second: Small_Poisonball_9x25_31
+  - first:
+      213: 6671740274766518634
+    second: Small_Poisonball_9x25_32
+  - first:
+      213: 4713170442046119256
+    second: Small_Poisonball_9x25_33
+  - first:
+      213: 8987194634636468446
+    second: Small_Poisonball_9x25_34
+  - first:
+      213: 7767733845602455706
+    second: Small_Poisonball_9x25_35
+  - first:
+      213: -3546384339215790199
+    second: Small_Poisonball_9x25_36
+  - first:
+      213: 8077090849362981592
+    second: Small_Poisonball_9x25_37
+  - first:
+      213: 3901213161104498819
+    second: Small_Poisonball_9x25_38
+  - first:
+      213: 5474653692769619891
+    second: Small_Poisonball_9x25_39
+  - first:
+      213: 3876776494664825969
+    second: Small_Poisonball_9x25_40
+  - first:
+      213: 6744606497291102452
+    second: Small_Poisonball_9x25_41
+  - first:
+      213: -570890330089213115
+    second: Small_Poisonball_9x25_42
+  - first:
+      213: 6603311920043957295
+    second: Small_Poisonball_9x25_43
+  - first:
+      213: 6895994190619564714
+    second: Small_Poisonball_9x25_44
+  - first:
+      213: 5622888218465573918
+    second: Small_Poisonball_9x25_45
+  - first:
+      213: 1324793011222378461
+    second: Small_Poisonball_9x25_46
+  - first:
+      213: -387562103567336600
+    second: Small_Poisonball_9x25_47
+  - first:
+      213: -5755491165013244586
+    second: Small_Poisonball_9x25_48
+  - first:
+      213: 758147003002220329
+    second: Small_Poisonball_9x25_49
+  - first:
+      213: -4827409831621417851
+    second: Small_Poisonball_9x25_50
+  - first:
+      213: 3098747901139857199
+    second: Small_Poisonball_9x25_51
+  - first:
+      213: -2767884732833368271
+    second: Small_Poisonball_9x25_52
+  - first:
+      213: -2831550183552274223
+    second: Small_Poisonball_9x25_53
+  - first:
+      213: -7292008135008727703
+    second: Small_Poisonball_9x25_54
+  - first:
+      213: 2893850490994326344
+    second: Small_Poisonball_9x25_55
+  - first:
+      213: -7254712371291074428
+    second: Small_Poisonball_9x25_56
+  - first:
+      213: 7168555978858914137
+    second: Small_Poisonball_9x25_57
+  - first:
+      213: 1470059388481225227
+    second: Small_Poisonball_9x25_58
+  - first:
+      213: 1695015518012448127
+    second: Small_Poisonball_9x25_59
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d792643ac8fd746846cb40e4255ce5
+      internalID: -4070014318422356730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b2eacd0bc76cf47aea140fb3dd256d
+      internalID: 3024276905959904431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83cf6e47aae51234aa897a62e46df468
+      internalID: -4345329899572161259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01be17b7b4087948b4721d4422b2389
+      internalID: -6009685145883373608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ec5ff9b1196854b80ed2a9fa46f45b
+      internalID: 2754213230342450466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_5
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 81
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5c10893ea93c749ada4c01c2d174d1
+      internalID: 465781789226888222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452ffe85327cac84fac8c9b04bd1ac47
+      internalID: 1273926997728661254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_7
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266915a5f94e76d45b3ecd7ad64f8fa0
+      internalID: 7660259402994342497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_8
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749b7f338a08f3747a8fe1140b9dd1fa
+      internalID: -338547594775147254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29994dbb43e2de345b197953e18ef556
+      internalID: 9033577268051976958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_10
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a21fbc26832c849af19a7fe2d93dcb
+      internalID: 193403465521689561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_11
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 72
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7ded5cbbfdc914581e2c74f2570b8c
+      internalID: -6244918223101956936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a83a9f0aa9c7247a7dbccadaba7135
+      internalID: 1525826579694951773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_13
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea032ba3f2b5a74cab7c039003c806c
+      internalID: 4105402212774837069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_14
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0c2a86b201f1c43bea879d21f3a483
+      internalID: 5518941155840152819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_15
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad114e6b5672ff4ba6b2a51dc4b3b18
+      internalID: 6502537136299404108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a29d8b1b85f6844dbd23940d727f663
+      internalID: 3586963218815667664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_17
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 63
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409abcc759bdb8a4fa1d15e2daf9bdc0
+      internalID: 7286751842307075278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3eb9c4c320d3614b86e3405523c9e6a
+      internalID: -3551826744658899324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_19
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5920685870328744d9b310ca317819b9
+      internalID: 6348971087803699135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_20
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7ea4fb22067d54ebacbbad7ccc11dd
+      internalID: 6992442695068795466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_21
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105878527db08114f912b3af1fab111b
+      internalID: 1044782018513405183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_22
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e2b113bdca809479ff021d08bc2216
+      internalID: 1458984486150540593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_23
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 54
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3966a077466de4abef61515d4d1937
+      internalID: -632752387849626694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3901f8b7c71844fab46b37155bd6a3
+      internalID: 887293101361235934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_25
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b4c3c48852e0a47939baedcd2077fd
+      internalID: 8969874186900399096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_26
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35cb8767adabe64cbe2a6af805eb9be
+      internalID: 4822893952559111921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_27
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9859a1f98917bdb478521ee96f167c22
+      internalID: 6356473090214730200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268e65a8ba4ca2d4cae958530420fffd
+      internalID: -3006350445792936480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_29
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 45
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec09b63a59fde14caf1ba6d4eb8ff9f
+      internalID: -4781249399589163939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147e8530e6854ab4baac1f4a9ce58cdf
+      internalID: -3580667207465430947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_31
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4064a75a1730c67458a329bed21bcbb8
+      internalID: -5988308570766115084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_32
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d9de3a8740af243921566d6e7ab9ae
+      internalID: 6671740274766518634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_33
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3196a02767ad46f4e86432c5ce40d47d
+      internalID: 4713170442046119256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_34
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6829240d7955a6f41b4fe66966aa1560
+      internalID: 8987194634636468446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_35
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 36
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b602eb87fe203db45946bd4d113a0331
+      internalID: 7767733845602455706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e681c120736c9f489e35bbf6ee350f3
+      internalID: -3546384339215790199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_37
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418691cad27b3e24fb37641e5205a44a
+      internalID: 8077090849362981592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_38
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3657acd79347ada47974fe7c49a87df2
+      internalID: 3901213161104498819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_39
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fda55a67a751b46b100db527129374
+      internalID: 5474653692769619891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_40
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5260973c505af41a0b887eb84b573e
+      internalID: 3876776494664825969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_41
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 27
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911b78aecc8b197469f6640b4bde0ed0
+      internalID: 6744606497291102452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5c2a8da38ef004fb1305bed03b94d3
+      internalID: -570890330089213115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_43
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37fc2e63d6a9b5d42832d5c9daf5aef8
+      internalID: 6603311920043957295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_44
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef95688577cb8db4c8541fd33dc2272b
+      internalID: 6895994190619564714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_45
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59777efd52bdc7842a1bc8e7e2689477
+      internalID: 5622888218465573918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_46
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f779c9a4aac2f24ab74137792f8fa23
+      internalID: 1324793011222378461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_47
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 18
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c3587a384af654f8618ec15b5fd068
+      internalID: -387562103567336600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4200a55d9fc42034684ca735fbd64859
+      internalID: -5755491165013244586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_49
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b017e69e163ebe428dbd737f166898b
+      internalID: 758147003002220329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_50
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ba1c739d47e7845b1b7d052a24d290
+      internalID: -4827409831621417851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_51
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3247b7cf0ec8a145a430f85dc6daa3a
+      internalID: 3098747901139857199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_52
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f1596131392f5488581d1e0af93840
+      internalID: -2767884732833368271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_53
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 9
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c00a3c0bebbdd646b66fb1fc2eb251d
+      internalID: -2831550183552274223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f99a905c3fb31c46a1b78f8fec80df2
+      internalID: -7292008135008727703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_55
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf3fdbcd2def494482992beba927ab9
+      internalID: 2893850490994326344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_56
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6337794f00b5d8e4aaed8f010a31a77b
+      internalID: -7254712371291074428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_57
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d4ea765df69244b9136620d49576ae
+      internalID: 7168555978858914137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_58
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac24a652761dd643b2ef9ca870cc8aa
+      internalID: 1470059388481225227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Poisonball_9x25_59
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d20cebcac47194abc80e841538e1c1
+      internalID: 1695015518012448127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Small_Poisonball_9x25_0: -4070014318422356730
+      Small_Poisonball_9x25_1: 3024276905959904431
+      Small_Poisonball_9x25_10: 193403465521689561
+      Small_Poisonball_9x25_11: -6244918223101956936
+      Small_Poisonball_9x25_12: 1525826579694951773
+      Small_Poisonball_9x25_13: 4105402212774837069
+      Small_Poisonball_9x25_14: 5518941155840152819
+      Small_Poisonball_9x25_15: 6502537136299404108
+      Small_Poisonball_9x25_16: 3586963218815667664
+      Small_Poisonball_9x25_17: 7286751842307075278
+      Small_Poisonball_9x25_18: -3551826744658899324
+      Small_Poisonball_9x25_19: 6348971087803699135
+      Small_Poisonball_9x25_2: -4345329899572161259
+      Small_Poisonball_9x25_20: 6992442695068795466
+      Small_Poisonball_9x25_21: 1044782018513405183
+      Small_Poisonball_9x25_22: 1458984486150540593
+      Small_Poisonball_9x25_23: -632752387849626694
+      Small_Poisonball_9x25_24: 887293101361235934
+      Small_Poisonball_9x25_25: 8969874186900399096
+      Small_Poisonball_9x25_26: 4822893952559111921
+      Small_Poisonball_9x25_27: 6356473090214730200
+      Small_Poisonball_9x25_28: -3006350445792936480
+      Small_Poisonball_9x25_29: -4781249399589163939
+      Small_Poisonball_9x25_3: -6009685145883373608
+      Small_Poisonball_9x25_30: -3580667207465430947
+      Small_Poisonball_9x25_31: -5988308570766115084
+      Small_Poisonball_9x25_32: 6671740274766518634
+      Small_Poisonball_9x25_33: 4713170442046119256
+      Small_Poisonball_9x25_34: 8987194634636468446
+      Small_Poisonball_9x25_35: 7767733845602455706
+      Small_Poisonball_9x25_36: -3546384339215790199
+      Small_Poisonball_9x25_37: 8077090849362981592
+      Small_Poisonball_9x25_38: 3901213161104498819
+      Small_Poisonball_9x25_39: 5474653692769619891
+      Small_Poisonball_9x25_4: 2754213230342450466
+      Small_Poisonball_9x25_40: 3876776494664825969
+      Small_Poisonball_9x25_41: 6744606497291102452
+      Small_Poisonball_9x25_42: -570890330089213115
+      Small_Poisonball_9x25_43: 6603311920043957295
+      Small_Poisonball_9x25_44: 6895994190619564714
+      Small_Poisonball_9x25_45: 5622888218465573918
+      Small_Poisonball_9x25_46: 1324793011222378461
+      Small_Poisonball_9x25_47: -387562103567336600
+      Small_Poisonball_9x25_48: -5755491165013244586
+      Small_Poisonball_9x25_49: 758147003002220329
+      Small_Poisonball_9x25_5: 465781789226888222
+      Small_Poisonball_9x25_50: -4827409831621417851
+      Small_Poisonball_9x25_51: 3098747901139857199
+      Small_Poisonball_9x25_52: -2767884732833368271
+      Small_Poisonball_9x25_53: -2831550183552274223
+      Small_Poisonball_9x25_54: -7292008135008727703
+      Small_Poisonball_9x25_55: 2893850490994326344
+      Small_Poisonball_9x25_56: -7254712371291074428
+      Small_Poisonball_9x25_57: 7168555978858914137
+      Small_Poisonball_9x25_58: 1470059388481225227
+      Small_Poisonball_9x25_59: 1695015518012448127
+      Small_Poisonball_9x25_6: 1273926997728661254
+      Small_Poisonball_9x25_7: 7660259402994342497
+      Small_Poisonball_9x25_8: -338547594775147254
+      Small_Poisonball_9x25_9: 9033577268051976958
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

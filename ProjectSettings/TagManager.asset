@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Projectile
+  - Sword
+  - EnemySpellProjectile
+  - EnemyNormalProjectile
+  - Ground
+  - SecretWall
+  - Item
+  - Bridge
+  - BossShield
+  - SorcererBoss
+  - Water
+  - Ladder
+  - Patroller
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Background
+  - Player
+  - Ladder
+  - Enemy
+  - DeadPlayer
+  - Projectile
+  - EnemyProjectile
+  - Sword
+  - SecretWall
+  - Collectable
+  - Interactable
+  - Destructible
+  - Hazard
+  - EnemyNG
+  - EnemyInvisible
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 497361221
+    locked: 0
+  - name: Ladder
+    uniqueID: 4222798115
+    locked: 0
+  - name: Enemy
+    uniqueID: 3905502637
+    locked: 0
+  - name: Player
+    uniqueID: 2704996097
+    locked: 0
+  - name: Foreground
+    uniqueID: 3822819863
+    locked: 0
