@@ -427,6 +427,7 @@
 "Assets/_Scripts/Pets/SkullSpider.cs"
 "Assets/_Scripts/Player/BreatabilityChecker.cs"
 "Assets/_Scripts/Player/CharacterController.cs"
+"Assets/_Scripts/Player/CharacterJumpController.cs"
 "Assets/_Scripts/Player/CharStats.cs"
 "Assets/_Scripts/Player/EmotionalStateDefiner.cs"
 "Assets/_Scripts/Player/LayerInteractionStateDefiner.cs"
