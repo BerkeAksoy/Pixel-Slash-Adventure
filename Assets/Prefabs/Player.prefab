@@ -897,6 +897,8 @@ GameObject:
   - component: {fileID: 6572569945786852467}
   - component: {fileID: 6572569945786852466}
   - component: {fileID: 8182160681789042152}
+  - component: {fileID: 5374928079145029618}
+  - component: {fileID: 6649135630837859808}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -952,9 +954,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569945786852458}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -967,7 +969,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -1126,6 +1128,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e19acfcb596f542a82de453d5ed20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxGroundTurnSpeed: 32
+  maxWaterTurnSpeed: 30
+  maxAirTurnSpeed: 50
+  maxGroundAcceleration: 40
+  maxGroundDeceleration: 40
+  maxWaterAcceleration: 30
+  maxWaterDeceleration: 50
+  maxAirAcceleration: 20
+  maxAirDeceleration: 50
   maxSpeed: 10
   useAcceleration: 1
   useAirAssist: 1
+--- !u!114 &5374928079145029618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1491fec6a7281b5408e561e9408511f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  footOffset: {x: 0.2, y: 0, z: 0}
+--- !u!114 &6649135630837859808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e4eb64630596a498792f18285d9016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XPToNextLevel: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  characterName: Berke
+  selectedAttribute: 
+  currentHP: 0
+  currentMana: 0
+  maxHP: 0
+  maxMana: 0
+  currentBreath: 0
+  maxBreath: 0
+  currentLevel: 1
+  totalGainedXP: 0
+  currentXP: 0
+  availablePoints: 0
+  minDPS: 0
+  maxDPS: 0
+  cVita: 0
+  cStr: 0
+  cDex: 0
+  cEnergy: 0
+  cIntel: 0
+  cPhyDmg: 0
+  cMgcDmg: 0
+  cDef: 0
+  cCritChance: 0
+  cMissChance: 0
+  cManaCostReduce: 0
+  cManaRegen: 0
+  cHPRegen: 0
+  chosenSpellSlot: 0
+  cAttackSpeed: 0
+  cCastSpeed: 0
+  cXPMultiplier: 0
+  cCritMultiplier: 0
+  cDmgMagnitude: 0
+  cMgcMagnitude: 0
+  tempCVita: 0
+  tempCStr: 0
+  tempCDex: 0
+  tempCEnergy: 0
+  tempCIntel: 0
+  inSession: 0
+  canUndo: 0
+  fullBreath: 1
+  eqpHelmet: {fileID: 0}
+  eqpArmor: {fileID: 0}
+  eqpAmulet: {fileID: 0}
+  eqpLegArmor: {fileID: 0}
+  eqpGloves: {fileID: 0}
+  eqpRing: {fileID: 0}
+  eqpBoots: {fileID: 0}
+  eqpWpn: {fileID: 0}
+  eqpMagicBooks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levelUp: {fileID: 0}

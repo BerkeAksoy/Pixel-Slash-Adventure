@@ -6,7 +6,7 @@ namespace BerkeAksoyCode
 {
     public class SkullSpider : Pet
     {
-        void Start()
+        /*void Start()
         {
             base.Start();
         }
@@ -14,6 +14,6 @@ namespace BerkeAksoyCode
         void FixedUpdate()
         {
             base.FixedUpdate();
-        }
+        }*/
     }
 }

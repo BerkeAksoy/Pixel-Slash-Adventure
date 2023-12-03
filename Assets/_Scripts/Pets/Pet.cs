@@ -239,10 +239,10 @@ namespace BerkeAksoyCode
                 {
                     transform.position = new Vector2(playerPosition.x - 1, playerPosition.y);
                 }
-                else
+                /*else
                 {
                     transform.position = new Vector2(playerPosition.x + 1, playerPosition.y);
-                }
+                }*/
             }
         }
 

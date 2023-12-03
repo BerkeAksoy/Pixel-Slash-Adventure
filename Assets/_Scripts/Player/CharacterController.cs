@@ -11,7 +11,7 @@ namespace BerkeAksoyCode {
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
         private Vector2 curVelocity, desiredVelocity;
         private bool lookingRight, pressingMoveKey;
-        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta, friction = 0f;
+        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta; // friction = 0f;
 
         [SerializeField, Range(0f, 50f)]
         [Tooltip("See the code to understand how to calculate")]
@@ -35,8 +35,8 @@ namespace BerkeAksoyCode {
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             pressingMoveKey = horizontalInput != 0 ? true : false;
-
-            desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed - friction, 0f);
+            
+            desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed, 0f); // If friction is wanted to use just substract from maxSpeed.
 
             if (pressingMoveKey)
             {
@@ -50,15 +50,11 @@ namespace BerkeAksoyCode {
 
             if (useAcceleration)
             {
-                SetAccProperties();
-                CalculateDeltaSpeed();
-
-                curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
-                myRigidbody2D.velocity = curVelocity;
+                RunWithAcc();
             }
             else
             {
-                runWithoutAcceleration();
+                RunWithoutAcc();
             }
         }
 
@@ -119,7 +115,17 @@ namespace BerkeAksoyCode {
             }
         }
 
-        private void runWithoutAcceleration()
+        private void RunWithAcc()
+        {
+            SetAccProperties();
+            CalculateDeltaSpeed();
+
+            curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
+
+            myRigidbody2D.velocity = curVelocity;
+        }
+
+        private void RunWithoutAcc()
         {
             curVelocity.x = desiredVelocity.x;
             myRigidbody2D.velocity = curVelocity;
