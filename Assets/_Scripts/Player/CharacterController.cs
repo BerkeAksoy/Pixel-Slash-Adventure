@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,21 +9,21 @@ namespace BerkeAksoyCode {
         private Rigidbody2D myRigidbody2D;
         private LayerInteractionStateDefiner layerIntStatusDefiner;
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
-        private Vector2 velocity, limitVelocity;
-        [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
-        private float horizontalInput = 0;
-        private float turnSpeed,
-            maxGroundTurnSpeed = 80f, maxWaterTurnSpeed = 30f, maxAirTurnSpeed = 80f,
-            acceleration, deceleration,
-            maxGroundAcceleration = 52f, maxGroundDeceleration = 52f,
-            maxWaterAcceleration = 30f, maxWaterDeceleration = 60f,
-            maxAirAcceleration = 20f, maxAirDeceleration = 52f,
-            speedDelta, friction = 0;
+        private Vector2 curVelocity, desiredVelocity;
+        private bool lookingRight, pressingMoveKey;
+        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta, friction = 0f;
+
+        [SerializeField, Range(0f, 50f)]
+        [Tooltip("See the code to understand how to calculate")]
+        private float maxGroundTurnSpeed = 50f, maxWaterTurnSpeed = 30f, maxAirTurnSpeed = 50f,
+            maxGroundAcceleration = 50f, maxGroundDeceleration = 50f,
+            maxWaterAcceleration = 50f, maxWaterDeceleration = 50f,
+            maxAirAcceleration = 50f, maxAirDeceleration = 50f;
 
         private Animator animator;
 
+        [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
         [SerializeField] private bool useAcceleration, useAirAssist;
-        private bool lookingRight, pressingMoveKey;
 
         private void Awake()
         {
@@ -30,38 +31,34 @@ namespace BerkeAksoyCode {
             layerIntStatusDefiner = GetComponent<LayerInteractionStateDefiner>();
         }
 
-        void Start()
-        {
-
-        }
-
         void Update()
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             pressingMoveKey = horizontalInput != 0 ? true : false;
 
+            desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed - friction, 0f);
+
             if (pressingMoveKey)
             {
                 FlipSprite();
             }
-
-            CalculateDeltaSpeed();
-
-            limitVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed - friction, 0f);
         }
 
         private void FixedUpdate()
         {
-            //if (pressingMoveKey)
+            charLayerIntStatus = layerIntStatusDefiner.GetCharPhyStatus();
+
+            if (useAcceleration)
             {
-                if (useAcceleration)
-                {
-                    runWithAcceleration();
-                }
-                else
-                {
-                    runWithoutAcceleration();
-                }
+                SetAccProperties();
+                CalculateDeltaSpeed();
+
+                curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
+                myRigidbody2D.velocity = curVelocity;
+            }
+            else
+            {
+                runWithoutAcceleration();
             }
         }
 
@@ -70,25 +67,32 @@ namespace BerkeAksoyCode {
             if (pressingMoveKey)
             {
                 // If the sign of our horizontalInput doesn't match our movement, it means we are tring to turn.
-                if (Mathf.Sign(horizontalInput) != Mathf.Sign(velocity.x))
+                if (Mathf.Sign(horizontalInput) != Mathf.Sign(curVelocity.x))
                 {
-                    speedDelta = turnSpeed * Time.deltaTime;
+                    // Buradaki secim tamamen tercihe baglidir. Her bir framede belli bir hiz artisi mi istiyorsun yoksa max hiza ne kadar surede ulasacagina gore mi hesaplamak istiyorsun.
+                    speedDelta = turnSpeed * Time.fixedDeltaTime; // Her bir fixed framede artacak hiz birimini verir. turnSpeed degiskeninin alabilecegi en yuksek deger, sadece max hiza ulasma suresini kisaltacaktir. Max hiza ulasma suresi, max hizin ne olduguna baglidir.
+                    //speedDelta = maxSpeed * GetAccerelationPercent(turnSpeed); // Her bir fixed framede artacak hiz birimi, max hizin yuzde kaci kacar artacagidir, yani burada max hiza tek karede ulasmak icin turn speed degiskeninin en fazla alabilecegi degere esitlenmesi yeterlidir.
                 }
                 else // If they match, it means we're simply running along and so should use the acceleration stat
                 {
-                    speedDelta = acceleration * Time.deltaTime;
+                    speedDelta = acceleration * Time.fixedDeltaTime;
+                    //speedDelta = maxSpeed * GetAccerelationPercent(acceleration);
                 }
             }
             else // And if we're not pressing a direction at all, use the deceleration stat
             {
-                speedDelta = deceleration * Time.deltaTime;
+                speedDelta = deceleration * Time.fixedDeltaTime;
+                //speedDelta = maxSpeed * GetAccerelationPercent(deceleration);
             }
         }
 
-        private void runWithAcceleration()
+        private float GetAccerelationPercent(float accType) // Divides given acceleration type to max acceleration value
         {
-            charLayerIntStatus = layerIntStatusDefiner.GetCharPhyStatus();
+            return (accType / 50f);
+        }
 
+        private void SetAccProperties()
+        {
             if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand))
             {
                 acceleration = maxGroundAcceleration;
@@ -101,7 +105,7 @@ namespace BerkeAksoyCode {
                 deceleration = maxWaterDeceleration;
                 turnSpeed = maxWaterTurnSpeed;
             }
-            else if(charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnAir))
+            else if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnAir))
             {
                 acceleration = maxAirAcceleration;
                 deceleration = maxAirDeceleration;
@@ -113,19 +117,12 @@ namespace BerkeAksoyCode {
                 deceleration = maxGroundDeceleration;
                 turnSpeed = maxGroundTurnSpeed;
             }
-
-            //Move our velocity towards the desired velocity, at the rate of the number calculated above
-            velocity.x = Mathf.MoveTowards(velocity.x, limitVelocity.x, speedDelta);
-
-            //Update the Rigidbody with this new velocity
-            myRigidbody2D.velocity = velocity;
-
         }
 
         private void runWithoutAcceleration()
         {
-            velocity.x = limitVelocity.x;
-            myRigidbody2D.velocity = velocity;
+            curVelocity.x = desiredVelocity.x;
+            myRigidbody2D.velocity = curVelocity;
         }
 
         private void FlipSprite()

@@ -10,7 +10,7 @@ namespace BerkeAksoyCode
         [SerializeField] private LayerMask groundLayer, waterLayer;
         [SerializeField] private Vector3 footOffset = new Vector3(0.2f, 0, 0);
         private bool onGround, inWater;
-        private float groundRayLength = 0.95f, waterRayLength = 0.2f;
+        private float groundRayLength = 0.7f, waterRayLength = 0.2f;
         private CharLayerInteractionStatus charLayerIntStatus;
 
         public enum CharLayerInteractionStatus
@@ -22,7 +22,7 @@ namespace BerkeAksoyCode
             OnLadder
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             CheckLayerInteractionState();
         }
@@ -30,16 +30,7 @@ namespace BerkeAksoyCode
         private void CheckLayerInteractionState()
         {
             onGround = Physics2D.Raycast(transform.position - footOffset, Vector2.down, groundRayLength, groundLayer) || Physics2D.Raycast(transform.position + footOffset, Vector2.down, groundRayLength, groundLayer);
-            inWater = Physics2D.Raycast(transform.position - footOffset, Vector2.down, waterRayLength, waterLayer) || Physics2D.Raycast(transform.position - footOffset, Vector2.down, waterRayLength, waterLayer);
-
-            if (onGround)
-            {
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.green, groundRayLength);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.red, groundRayLength);
-            }
+            inWater = Physics2D.Raycast(transform.position, Vector2.down, waterRayLength, waterLayer);
 
             if (onGround && !inWater) // On dry land
             {

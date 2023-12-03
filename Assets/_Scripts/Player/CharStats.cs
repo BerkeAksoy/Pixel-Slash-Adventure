@@ -38,18 +38,18 @@ namespace BerkeAksoyCode
         public MagicBook[] eqpMagicBooks = new MagicBook[mageBookSlotCount];
 
         public GameObject levelUp;
-        private HealthBar myHB;
-        private ManaBar myMB;
-        private LevelBar myLB;
-        private BreathCounter myBC;
+        //private HealthBar myHB;
+        //private ManaBar myMB;
+        //private LevelBar myLB;
+        //private BreathCounter myBC;
 
 
         void Start()
         {
-            myHB = GameObject.Find("Main Canvas/HUD/Health Bar").GetComponent<HealthBar>();
-            myMB = GameObject.Find("Main Canvas/HUD/Mana Bar").GetComponent<ManaBar>();
-            myLB = GameObject.Find("Main Canvas/HUD/Level Bar").GetComponent<LevelBar>();
-            myBC = GetComponentInChildren<BreathCounter>();
+            //myHB = GameObject.Find("Main Canvas/HUD/Health Bar").GetComponent<HealthBar>();
+            //myMB = GameObject.Find("Main Canvas/HUD/Mana Bar").GetComponent<ManaBar>();
+            //myLB = GameObject.Find("Main Canvas/HUD/Level Bar").GetComponent<LevelBar>();
+            //myBC = GetComponentInChildren<BreathCounter>();
 
             currentHP = _HP;
             currentMana = _Mana;
@@ -68,11 +68,11 @@ namespace BerkeAksoyCode
             StartCoroutine(regen());
 
             calculateStats();
-            updateXP();
-            updateHealth();
-            updateMana();
+            //updateXP();
+            //updateHealth();
+            //updateMana();
 
-            myBC.deActivateIndicator();
+            //myBC.deActivateIndicator();
         }
 
 
@@ -89,7 +89,7 @@ namespace BerkeAksoyCode
             }
         }
 
-        public void flipBreathSprite()
+        /*public void flipBreathSprite()
         {
             if (myBC.isActiveAndEnabled)
             {
@@ -105,9 +105,9 @@ namespace BerkeAksoyCode
             }
 
             myBC.updateBreathIndicator(maxBreath, currentBreath);
-        }
+        }*/
 
-        public void refillBreath()
+        /*public void refillBreath()
         {
             breathTimer += Time.deltaTime / 0.5f; // Divided by 0.5 to make it 0.5 seconds.
 
@@ -124,7 +124,7 @@ namespace BerkeAksoyCode
                 fullBreath = true;
                 myBC.deActivateIndicator();
             }
-        }
+        }*/
 
         public void addXP(int XP)
         {
@@ -144,11 +144,11 @@ namespace BerkeAksoyCode
                 currentHP = maxHP;
                 currentMana = maxMana;
 
-                updateHealth();
-                updateMana();
+                //updateHealth();
+                //updateMana();
             }
 
-            updateXP();
+            //updateXP();
         }
 
         public void setEquippedItems()
@@ -454,8 +454,8 @@ namespace BerkeAksoyCode
             saveTempSpecialPoints();
             //updateSpecials();
 
-            updateHealth();
-            updateMana();
+            //updateHealth();
+            //updateMana();
         }
 
         public void saveTempSpecialPoints()
@@ -554,7 +554,7 @@ namespace BerkeAksoyCode
             return Random.Range(0.8f, 1.2f);
         }
 
-        public void updateHealth()
+        /*public void updateHealth()
         {
             myHB.updateHealth(this);
         }
@@ -567,7 +567,7 @@ namespace BerkeAksoyCode
         public void updateXP()
         {
             myLB.updateXP(this);
-        }
+        }*/
 
         IEnumerator regen()
         {
@@ -594,8 +594,8 @@ namespace BerkeAksoyCode
                     currentHP = maxHP;
                 }
 
-                updateMana();
-                updateHealth();
+                //updateMana();
+                //updateHealth();
             }
         }
     }

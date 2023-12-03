@@ -16,13 +16,12 @@ namespace BerkeAksoyCode
         private GameObject mySword2D;
 
         private Animator animator;
-        private PhysicsMaterial2D zeroFriction;
         public CharStats stats;
         private PlayerSpell spellToCast;
-        [SerializeField]
-        private GameObject popUpText;
+        
+        [SerializeField] private GameObject popUpText;
 
-        private bool canDoubleJump = true, isAwake = true, onLadder;
+        private bool isAwake = true;
 
         void Start()
         {
@@ -31,7 +30,6 @@ namespace BerkeAksoyCode
             myMagicBook2D = GameObject.Find("/" + name + "/Magic Book");
             mySword2D = GameObject.Find("/" + name + "/Hit_Box");
             animator = GetComponent<Animator>();
-            zeroFriction = myBody2D.sharedMaterial;
         }
 
         void Update()
@@ -120,7 +118,7 @@ namespace BerkeAksoyCode
                     nextMagic = Time.time + stats.cCastSpeed;
 
                     stats.currentMana -= spellCost;
-                    stats.updateMana();
+                    //stats.updateMana();
                     Instantiate(spellToCast, myMagicBook2D.transform.position, Quaternion.identity);
                 }
                 else
@@ -167,7 +165,7 @@ namespace BerkeAksoyCode
                 a.GetComponent<TextMeshPro>().color = Color.red;
             }
 
-            stats.updateHealth();
+            //stats.updateHealth();
 
             if (stats.currentHP > 0 && !isAwake)
             {
@@ -197,7 +195,7 @@ namespace BerkeAksoyCode
             yield return new WaitForSeconds(0.6f);
             animator.SetTrigger("Reborn");
             //gameObject.layer = LayerMask.NameToLayer("Player");
-            myBody2D.sharedMaterial = zeroFriction;
+            //myBody2D.sharedMaterial = zeroFriction;
             //myRigidbody2D.freezeRotation = true;
             isAwake = true;
         }

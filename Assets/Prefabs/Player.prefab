@@ -896,6 +896,7 @@ GameObject:
   - component: {fileID: 6572569945786852460}
   - component: {fileID: 6572569945786852467}
   - component: {fileID: 6572569945786852466}
+  - component: {fileID: 8182160681789042152}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -985,7 +986,6 @@ MonoBehaviour:
   stats: {fileID: 0}
   popUpText: {fileID: 5188389553662615153, guid: be206e4e262fbe64abb1213f70f42394,
     type: 3}
-  canMove: 1
 --- !u!114 &6572569945786852467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,3 +1114,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelUp: {fileID: 7478860603394155521, guid: 5b5879d7ee4910c478214525aef4f311, type: 3}
+--- !u!114 &8182160681789042152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e19acfcb596f542a82de453d5ed20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  useAcceleration: 1
+  useAirAssist: 1
