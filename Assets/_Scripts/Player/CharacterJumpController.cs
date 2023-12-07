@@ -10,24 +10,21 @@ namespace BerkeAksoyCode
         private Rigidbody2D myRigidbody2D;
         private LayerInteractionStateDefiner layerInteractionStateDefiner;
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
-        private Vector2 velocity;
+        private Vector2 curVelocity;
         //private characterJuice juice;
 
         [Header("Jumping Stats")]
         [SerializeField, Range(2f, 8f)][Tooltip("Maximum jump height")]
         private float jumpHeight = 7.3f;
 
-        private bool jumpPressed, jumpReleased;
-
         [SerializeField, Range(0.2f, 1.25f)][Tooltip("How long it takes to reach that height before coming back down")]
         public float timeToJumpApex;
 
         [SerializeField, Range(0f, 5f)][Tooltip("Gravity multiplier to apply when going up")]
-        public float upwardMovementMultiplier = 1f;
+        public float upwardMoveMult = 1f;
 
-        [SerializeField, Range(1f, 10f)]
-        [Tooltip("Gravity multiplier to apply when coming down")]
-        public float downwardMovementMultiplier = 6.17f;
+        [SerializeField, Range(1f, 10f)][Tooltip("Gravity multiplier to apply when coming down")]
+        public float downwardMoveMult = 6.17f;
 
         [SerializeField, Range(0, 1)][Tooltip("How many times can you jump in the air?")]
         public int maxAirJumps = 0;
@@ -54,39 +51,37 @@ namespace BerkeAksoyCode
         public float gravMultiplier;
 
         [Header("Current State")]
-        public bool canJumpAgain = false;
+        private float coyoteTimeCounter = 0;
+        private bool pressingJump, canJumpAgain = false, currentlyJumping, alwaysFullThrust;
         private bool desiredJump;
         private float jumpBufferCounter;
-        private float coyoteTimeCounter = 0;
-        private bool pressingJump;
-        public bool onGround;
-        private bool currentlyJumping;
-        private bool alwaysFullThrust;
 
         private void Awake()
         {
-            
+            myRigidbody2D = GetComponent<Rigidbody2D>();
+            layerInteractionStateDefiner = GetComponent<LayerInteractionStateDefiner>();
         }
 
         private void Update()
         {
             charLayerIntStatus = layerInteractionStateDefiner.GetCharPhyStatus();
+            Debug.Log(charLayerIntStatus);
             if (Input.GetKeyDown(KeyCode.Space)){
-                jumpPressed = true;
+                pressingJump = true;
+                DoAJump();
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                jumpReleased = true;
-                jumpPressed = false;
+                pressingJump = false;
             }
         }
 
         private void FixedUpdate()
         {
-            calculateGravity();
+            ActiveGravityCalculation();
         }
 
-        private void calculateGravity() // We change the character's gravity based on her Y direction
+        private void ActiveGravityCalculation() // We change the character's gravity based on her Y direction
         {
             if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnAir))
             {
@@ -96,7 +91,7 @@ namespace BerkeAksoyCode
                     {
                         if (pressingJump && currentlyJumping) // Apply upward multiplier if player is rising and holding jump
                         {
-                            gravMultiplier = upwardMovementMultiplier;
+                            gravMultiplier = upwardMoveMult;
                         }
                         else // But apply a special downward multiplier if the player lets go of jump
                         {
@@ -105,18 +100,19 @@ namespace BerkeAksoyCode
                     }
                     else
                     {
-                        gravMultiplier = upwardMovementMultiplier;
+                        gravMultiplier = upwardMoveMult;
                     }
                 }
                 else if (myRigidbody2D.velocity.y < -0.01f) // If Kit is going down...
                 {
-                    gravMultiplier = downwardMovementMultiplier;
+                    gravMultiplier = downwardMoveMult;
+                    Debug.Log("I should enter this");
                 }
             }
 
             //Set the character's Rigidbody's velocity
             //But clamp the Y variable within the bounds of the speed limit, for the terminal velocity assist option
-            myRigidbody2D.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
+            myRigidbody2D.velocity = new Vector3(curVelocity.x, Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 100));
         }
 
         private void DoAJump() // No jumping on the bottom of the water
@@ -134,7 +130,7 @@ namespace BerkeAksoyCode
                 jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRigidbody2D.gravityScale * jumpHeight);
 
                 //If Kit is moving up or down when she jumps (such as when doing a double jump), change the jumpSpeed // This will ensure the jump is the exact same strength, no matter your velocity.
-                if (velocity.y > 0f)
+                if (curVelocity.y > 0f)
                 {
                     if (alwaysFullThrust)
                     {
@@ -142,17 +138,17 @@ namespace BerkeAksoyCode
                     }
                     else
                     {
-                        jumpSpeed = Mathf.Max(jumpSpeed - velocity.y, 0f); // Havada kaybettigi gucu ekliyor
+                        jumpSpeed = Mathf.Max(jumpSpeed - curVelocity.y, 0f); // Havada kaybettigi gucu ekliyor
                     }
                 }
-                else if (velocity.y < 0f)
+                else if (curVelocity.y < 0f)
                 {
                     jumpSpeed += Mathf.Abs(myRigidbody2D.velocity.y);
                 }
 
                 //Apply the new jumpSpeed to the velocity. It will be sent to the Rigidbody in FixedUpdate;
-                velocity.y += jumpSpeed;
-                //currentlyJumping = true;
+                curVelocity.y += jumpSpeed;
+                currentlyJumping = true;
 
                 /*if (juice != null)
                 {

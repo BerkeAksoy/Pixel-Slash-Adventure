@@ -37,7 +37,7 @@ namespace BerkeAksoyCode
             if (Mathf.Abs(getXDistanceToPlayer()) < canAttackX && Mathf.Abs(getYDistanceToPlayer()) < canAttackY)
             {
                 canFear = false;
-                player.fear();
+                //player.fear();
             }
         }
 

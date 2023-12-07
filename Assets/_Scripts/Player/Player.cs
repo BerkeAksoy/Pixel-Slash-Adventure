@@ -7,8 +7,7 @@ namespace BerkeAksoyCode
 {
     public class Player : MonoBehaviour, IDamagable
     {
-        private float climbingSpeed = 3, nextMagic = 0, nextSword = 0;
-        private bool feared;
+        private float nextMagic = 0, nextSword = 0;
 
         private CapsuleCollider2D myBody2D;
 
@@ -176,18 +175,6 @@ namespace BerkeAksoyCode
                 gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
                 Debug.Log("You died");
             }
-        }
-
-        public void fear()
-        {
-            feared = true;
-            StartCoroutine(reFear());
-        }
-
-        IEnumerator reFear()
-        {
-            yield return new WaitForSeconds(3f);
-            feared = false;
         }
 
         private IEnumerator reBorn()

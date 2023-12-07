@@ -13,18 +13,16 @@ namespace BerkeAksoyCode {
         private bool lookingRight, pressingMoveKey;
         private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta; // friction = 0f;
 
-        [SerializeField, Range(0f, 50f)]
-        [Tooltip("See the code to understand how to calculate")]
+        [SerializeField, Range(0f, 50f)][Tooltip("See the code to understand how to calculate")]
         private float maxGroundTurnSpeed = 50f, maxWaterTurnSpeed = 30f, maxAirTurnSpeed = 50f,
             maxGroundAcceleration = 50f, maxGroundDeceleration = 50f,
             maxWaterAcceleration = 50f, maxWaterDeceleration = 50f,
             maxAirAcceleration = 50f, maxAirDeceleration = 50f;
 
-        private Animator animator;
-
         [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
         [SerializeField] private bool useAcceleration, useAirAssist;
-
+        private bool feared;
+        private float climbingSpeed;
         private void Awake()
         {
             myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -121,7 +119,6 @@ namespace BerkeAksoyCode {
             CalculateDeltaSpeed();
 
             curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
-
             myRigidbody2D.velocity = curVelocity;
         }
 
@@ -195,4 +192,17 @@ namespace BerkeAksoyCode {
             }
         }
     }*/
+
+// probably I will control fear through state machine
+// public void fear()
+//     {
+//         feared = true;
+//         StartCoroutine(reFear());
+//     }
+
+//     IEnumerator reFear()
+//     {
+//         yield return new WaitForSeconds(3f);
+//         feared = false;
+//     }
 }

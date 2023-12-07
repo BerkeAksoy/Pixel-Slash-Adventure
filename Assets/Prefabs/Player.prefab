@@ -896,9 +896,10 @@ GameObject:
   - component: {fileID: 6572569945786852460}
   - component: {fileID: 6572569945786852467}
   - component: {fileID: 6572569945786852466}
-  - component: {fileID: 8182160681789042152}
   - component: {fileID: 5374928079145029618}
+  - component: {fileID: 8182160681789042152}
   - component: {fileID: 6649135630837859808}
+  - component: {fileID: 112644344987378900}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -954,7 +955,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569945786852458}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -1116,6 +1117,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelUp: {fileID: 7478860603394155521, guid: 5b5879d7ee4910c478214525aef4f311, type: 3}
+--- !u!114 &5374928079145029618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1491fec6a7281b5408e561e9408511f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  footOffset: {x: 0.2, y: 0, z: 0}
 --- !u!114 &8182160681789042152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,25 +1160,6 @@ MonoBehaviour:
   maxSpeed: 10
   useAcceleration: 1
   useAirAssist: 1
---- !u!114 &5374928079145029618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572569945786852458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1491fec6a7281b5408e561e9408511f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  waterLayer:
-    serializedVersion: 2
-    m_Bits: 16
-  footOffset: {x: 0.2, y: 0, z: 0}
 --- !u!114 &6649135630837859808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,3 +1228,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelUp: {fileID: 0}
+--- !u!114 &112644344987378900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d097b34aef9704a932cbac976cbd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 7.3
+  timeToJumpApex: 0
+  upwardMoveMult: 1
+  downwardMoveMult: 6.17
+  maxAirJumps: 0
+  variablejumpHeight: 1
+  jumpCutOff: 0
+  fallSpeedLimit: 100
+  coyoteTime: 0.1
+  jumpBuffer: 0.1
+  jumpSpeed: 0
+  gravMultiplier: 0
