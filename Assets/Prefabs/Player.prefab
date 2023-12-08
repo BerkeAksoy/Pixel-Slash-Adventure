@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 6572569945535123518}
   - component: {fileID: 6572569945535123517}
   - component: {fileID: 5624329344758430108}
+  - component: {fileID: 1317112399004818594}
   m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
@@ -851,6 +852,66 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05558586, y: -0.003348887}
   m_Size: {x: 0.4792385, y: 1.0263711}
   m_Direction: 0
+--- !u!114 &1317112399004818594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945535123519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 0
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 2
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.1
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 98304
+  m_IgnoreTag: Sword
+  m_UseImpactDirection: 1
+  m_ScaleImpactWithMass: 0
+  m_ScaleImpactWithSpeed: 0
 --- !u!1 &6572569945768264896
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,12 +955,9 @@ GameObject:
   - component: {fileID: 6572569945786852462}
   - component: {fileID: 6572569945786852463}
   - component: {fileID: 6572569945786852460}
-  - component: {fileID: 6572569945786852467}
   - component: {fileID: 6572569945786852466}
   - component: {fileID: 5374928079145029618}
   - component: {fileID: 8182160681789042152}
-  - component: {fileID: 6649135630837859808}
-  - component: {fileID: 112644344987378900}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -955,7 +1013,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569945786852458}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -989,66 +1047,6 @@ MonoBehaviour:
   stats: {fileID: 0}
   popUpText: {fileID: 5188389553662615153, guid: be206e4e262fbe64abb1213f70f42394,
     type: 3}
---- !u!114 &6572569945786852467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572569945786852458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_ImpulseShape: 0
-    m_CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_ImpulseDuration: 0.2
-    m_ImpulseType: 3
-    m_DissipationRate: 0
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-    m_AmplitudeGain: 2
-    m_FrequencyGain: 1
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.1
-      m_DecayTime: 0.7
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 1000
-    m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0, y: -1, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 98304
-  m_IgnoreTag: Sword
-  m_UseImpactDirection: 1
-  m_ScaleImpactWithMass: 0
-  m_ScaleImpactWithSpeed: 0
 --- !u!114 &6572569945786852466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,95 +1158,14 @@ MonoBehaviour:
   maxSpeed: 10
   useAcceleration: 1
   useAirAssist: 1
---- !u!114 &6649135630837859808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572569945786852458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e4eb64630596a498792f18285d9016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  XPToNextLevel: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  characterName: Berke
-  selectedAttribute: 
-  currentHP: 0
-  currentMana: 0
-  maxHP: 0
-  maxMana: 0
-  currentBreath: 0
-  maxBreath: 0
-  currentLevel: 1
-  totalGainedXP: 0
-  currentXP: 0
-  availablePoints: 0
-  minDPS: 0
-  maxDPS: 0
-  cVita: 0
-  cStr: 0
-  cDex: 0
-  cEnergy: 0
-  cIntel: 0
-  cPhyDmg: 0
-  cMgcDmg: 0
-  cDef: 0
-  cCritChance: 0
-  cMissChance: 0
-  cManaCostReduce: 0
-  cManaRegen: 0
-  cHPRegen: 0
-  chosenSpellSlot: 0
-  cAttackSpeed: 0
-  cCastSpeed: 0
-  cXPMultiplier: 0
-  cCritMultiplier: 0
-  cDmgMagnitude: 0
-  cMgcMagnitude: 0
-  tempCVita: 0
-  tempCStr: 0
-  tempCDex: 0
-  tempCEnergy: 0
-  tempCIntel: 0
-  inSession: 0
-  canUndo: 0
-  fullBreath: 1
-  eqpHelmet: {fileID: 0}
-  eqpArmor: {fileID: 0}
-  eqpAmulet: {fileID: 0}
-  eqpLegArmor: {fileID: 0}
-  eqpGloves: {fileID: 0}
-  eqpRing: {fileID: 0}
-  eqpBoots: {fileID: 0}
-  eqpWpn: {fileID: 0}
-  eqpMagicBooks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  levelUp: {fileID: 0}
---- !u!114 &112644344987378900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572569945786852458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d097b34aef9704a932cbac976cbd5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 7.3
-  timeToJumpApex: 0
+  jumpHeight: 8
+  timeToJumpApex: 0.841
   upwardMoveMult: 1
   downwardMoveMult: 6.17
-  maxAirJumps: 0
-  variablejumpHeight: 1
-  jumpCutOff: 0
-  fallSpeedLimit: 100
+  maxAirJumps: 1
+  variableJumpHeight: 1
+  jumpCutOff: 1
+  fallSpeedLimit: 80
   coyoteTime: 0.1
   jumpBuffer: 0.1
-  jumpSpeed: 0
-  gravMultiplier: 0
+  alwaysFullThrust: 0

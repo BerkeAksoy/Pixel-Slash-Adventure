@@ -30,7 +30,7 @@ namespace BerkeAksoyCode
         public bool inSession, canUndo;
 
         // Timer
-        private float breathTimer = 0;
+        //private float breathTimer = 0;
         public bool fullBreath = true;
 
         public Item eqpHelmet, eqpArmor, eqpAmulet, eqpLegArmor, eqpGloves, eqpRing, eqpBoots;

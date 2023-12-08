@@ -6,16 +6,14 @@ namespace BerkeAksoyCode
 {
     public class PlayerSpell : MonoBehaviour, ITracer
     {
-        [SerializeField]
-        private float spellSpeed = 6f;
+        [SerializeField] private float spellSpeed = 6f;
         private bool isFacingRight = true;
-        [SerializeField]
-        private int id = 0, damage = 0, spellCost = 0;
+        [SerializeField] private int damage = 0, spellCost = 0;
         private Enemy nearestEnemy = null;
         private float rotateSpeed = 180f;
         private Rigidbody2D myRigidbody2D;
         public bool traceEnemy;
-        private Player player;
+        private Player player;      
         public GameObject effect;
 
         private GameManager gm;

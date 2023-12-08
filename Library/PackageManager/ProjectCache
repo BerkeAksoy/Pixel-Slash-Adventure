@@ -5,22 +5,22 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638370746203050103
-    m_Hash: 1734413773
+      ticks: 638376503896877780
+    m_Hash: 4260618065
   m_LockFileStatus:
     m_FilePath: C:/Users/aksoy/Documents/Unity Workspace/Pixel Slash Adventure/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638370746203085215
-    m_Hash: 638407250
+      ticks: 638376503896917936
+    m_Hash: 2901723208
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/aksoy/Documents/Unity Workspace/Pixel Slash Adventure/Packages
-m_EditorVersion: 2022.3.11f1 (d00248457e15)
+m_EditorVersion: 2023.2.2f1 (dfe9eb92cac5)
 m_ResolvedPackages:
 - packageId: com.unity.2d.sprite@1.0.0
   testable: 0
@@ -39,7 +39,6 @@ m_ResolvedPackages:
   type: 
   description: Use Unity Sprite Editor Window to create and edit Sprite asset properties
     like pivot, borders and Physics shape
-  status: 0
   errors: []
   versions:
     all:
@@ -63,6 +62,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -80,6 +81,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.2d.tilemap@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -97,7 +104,6 @@ m_ResolvedPackages:
   type: 
   description: 2D Tilemap Editor is a package that contains editor functionalities
     for editing Tilemaps.
-  status: 0
   errors: []
   versions:
     all:
@@ -124,6 +130,8 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
+  - name: com.unity.modules.hierarchycore
+    version: 1.0.0
   keywords:
   - 2d
   - Tilemap
@@ -136,6 +144,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -153,12 +163,18 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.ai.navigation@1.1.5
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
+- packageId: com.unity.ai.navigation@2.0.0
   testable: 0
   isDirectDependency: 1
-  version: 1.1.5
+  version: 2.0.0
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ai.navigation@1.1.5
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ai.navigation@2.0.0
   assetPath: Packages/com.unity.ai.navigation
   name: com.unity.ai.navigation
   displayName: AI Navigation
@@ -170,7 +186,6 @@ m_ResolvedPackages:
   type: assets
   description: High-level NavMesh components for building and using NavMeshes at
     runtime and at edit time.
-  status: 0
   errors: []
   versions:
     all:
@@ -188,8 +203,8 @@ m_ResolvedPackages:
     - 2.0.0-pre.4
     - 2.0.0
     compatible:
-    - 1.1.5
-    recommended: 1.1.5
+    - 2.0.0
+    recommended: 2.0.0
     deprecated: []
   dependencies:
   - name: com.unity.modules.ai
@@ -207,23 +222,33 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638319373850000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/index.html
+  datePublishedTicks: 638333060450000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ai.navigation.git
-    revision: a905e1ab41c8afae1a75688ceb3b4dfa1686ea75
+    revision: 365db7071a1efdbf9fc337dd1c0de02f909cd685
     path: 
   unityLifecycle:
-    version: 1.1.5
+    version: 2.0.0
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Fixed\n* When the \"Auto Update Position\" option
+    of NavMeshLink is enabled, the link now correctly updates the connection in the
+    next frame after any of the link''s ends change their world position."}'
+  assetStore:
+    productId: 
 - packageId: com.unity.cinemachine@2.9.7
   testable: 0
   isDirectDependency: 1
@@ -244,7 +269,6 @@ m_ResolvedPackages:
     menu.\n\nIMPORTANT NOTE: If you are upgrading from the legacy Asset Store version
     of Cinemachine, delete the Cinemachine asset from your project BEFORE installing
     this version from the Package Manager."
-  status: 0
   errors: []
   versions:
     all:
@@ -320,6 +344,7 @@ m_ResolvedPackages:
     - 3.0.0-pre.7
     - 3.0.0-pre.8
     - 3.0.0-pre.9
+    - 3.0.1
     compatible:
     - 2.9.5
     - 2.9.7
@@ -330,6 +355,7 @@ m_ResolvedPackages:
     - 3.0.0-pre.7
     - 3.0.0-pre.8
     - 3.0.0-pre.9
+    - 3.0.1
     recommended: 2.9.7
     deprecated: []
   dependencies:
@@ -337,9 +363,9 @@ m_ResolvedPackages:
     version: 1.1.31
   resolvedDependencies:
   - name: com.unity.test-framework
-    version: 1.1.33
+    version: 1.3.9
   - name: com.unity.ext.nunit
-    version: 1.0.6
+    version: 2.0.5
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
@@ -376,6 +402,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
   datePublishedTicks: 638191355130000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.cinemachine@2.9/manual/index.html
@@ -387,18 +415,30 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 2.9.5
-    nextVersion: 
+    nextVersion: 3.0.0-pre.3
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.collab-proxy@2.1.0
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"- Bugfix: AxisState was not respecting timescale ==
+    0.\n- Bugfix: Very occasional axis drift in SimpleFollow when viewing angle is
+    +-90 degrees.\n- URP: add temporal effects reset on camera cut for URP 14.0.4
+    and up.\n- Bugfix: MixingCamera calls OnTransitionFromCamera correctly for all
+    its children.\n- Bugfix: Passive vcams with noise were not respecting transform''s
+    z rotation during blends.\n- Regression fix: CinemachineSmoothPath.GetLocalOrientation
+    was returning global orientations."}'
+  assetStore:
+    productId: 
+- packageId: com.unity.collab-proxy@2.2.0
   testable: 0
   isDirectDependency: 1
-  version: 2.1.0
+  version: 2.2.0
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.collab-proxy@2.1.0
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.collab-proxy@2.2.0
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Version Control
@@ -410,8 +450,7 @@ m_ResolvedPackages:
   type: assets
   description: The package gives you the ability to use Unity Version Control in
     the Unity editor. To use Unity Version Control, a subscription is required. Learn
-    more about how you can get started for free by visiting plasticscm.com.
-  status: 0
+    more about how you can get started for free by visiting https://unity.com/solutions/version-control
   errors: []
   versions:
     all:
@@ -486,9 +525,8 @@ m_ResolvedPackages:
     - 2.1.0
     - 2.2.0
     compatible:
-    - 2.1.0
     - 2.2.0
-    recommended: 2.1.0
+    recommended: 2.2.0
     deprecated: []
   dependencies: []
   resolvedDependencies: []
@@ -516,29 +554,49 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638301329890000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.collab-proxy@2.1/manual/index.html
+  datePublishedTicks: 638326189440000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.collab-proxy@2.2/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-    revision: 179e96acc2f95fcb9dcc91b5fb2ee5f3e85d48aa
+    revision: 33c8fba1793946be3c73f738edf70db0b5546afd
     path: 
   unityLifecycle:
-    version: 2.1.0
+    version: 2.2.0
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.ext.nunit@1.0.6
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"Unity Version Control is now available as part of the
+    Version Control Package! You can enable Unity Version Control via Window > Unity
+    Version Control to get started!\nIf you have previously used the Unity Asset
+    Store Plastic SCM plug-in, you can now simply use this package. Make sure you
+    delete the plug-in from your project.\nRemoving a previously added Plastic SCM
+    Asset Store Plug-In:\n\n- Select the PlasticSCM folder in the Assets\\Plugins
+    folder on the Project tab, then click Edit > Delete\n- Close the Unity Editor
+    and open your project again. You will find the Plastic SCM menu item in the Window
+    menu.\n\n### Added\n\n- Added button for organization owner/admins to upgrade
+    to DevOps subscription.\n- Included new decorators for retained & locked files.\n\n###
+    Changed\n\n- Updated description in the package.json, including an updated link
+    to get started.\n\n### Fixed\n\n- Fixed failed operations when the workspace
+    is already locked."}'
+  assetStore:
+    productId: 
+- packageId: com.unity.ext.nunit@2.0.5
   testable: 0
   isDirectDependency: 1
-  version: 1.0.6
+  version: 2.0.5
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ext.nunit@1.0.6
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ext.nunit@2.0.5
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
@@ -547,10 +605,9 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Libraries
-  type: asset
-  description: Custom version of the nunit package build to work with Unity. Used
-    by the Unity Test Framework.
-  status: 0
+  type: assets
+  description: A custom version of NUnit used by Unity Test Framework. Based on NUnit
+    version 3.5 and works with all platforms, il2cpp and Mono AOT.
   errors: []
   versions:
     all:
@@ -565,12 +622,8 @@ m_ResolvedPackages:
     - 2.0.4
     - 2.0.5
     compatible:
-    - 1.0.6
-    - 2.0.2
-    - 2.0.3
-    - 2.0.4
     - 2.0.5
-    recommended: 1.0.6
+    recommended: 2.0.5
     deprecated: []
   dependencies: []
   resolvedDependencies: []
@@ -587,29 +640,37 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637429759280000000
-  documentationUrl: 
+  datePublishedTicks: 638236642220000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ext.nunit@2.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ext.nunit.git
-    revision: 29ea4d6504a5f58fb3a6934db839aa80ae6d9d88
+    revision: 469fe0d46bfc26fbb32a53885ca4d12abcdae4ae
     path: 
   unityLifecycle:
-    version: 1.0.6
+    version: 2.0.5
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.ide.rider@3.0.26
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"- Fixing bug for InstanceID as struct changes"}'
+  assetStore:
+    productId: 
+- packageId: com.unity.ide.rider@3.0.27
   testable: 0
   isDirectDependency: 1
-  version: 3.0.26
+  version: 3.0.27
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ide.rider@3.0.26
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ide.rider@3.0.27
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -622,7 +683,6 @@ m_ResolvedPackages:
   description: The JetBrains Rider Editor package provides an integration for using
     the JetBrains Rider IDE as a code editor for Unity. It adds support for generating
     .csproj files for code completion and auto-discovery of installations.
-  status: 0
   errors: []
   versions:
     all:
@@ -666,17 +726,18 @@ m_ResolvedPackages:
     - 3.0.24
     - 3.0.25
     - 3.0.26
+    - 3.0.27
     compatible:
-    - 3.0.25
     - 3.0.26
-    recommended: 3.0.26
+    - 3.0.27
+    recommended: 3.0.27
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
   resolvedDependencies:
   - name: com.unity.ext.nunit
-    version: 1.0.6
+    version: 2.0.5
   keywords: []
   registry:
     id: main
@@ -687,23 +748,34 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638326061920000000
+  datePublishedTicks: 638373878680000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.rider@3.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
-    revision: 2b29b1152946c13d1ecebf6fc681a59cd8b4d399
+    revision: 1d471c19a7f21834ae5b8d0358fd6f9b242c1ee8
     path: 
   unityLifecycle:
-    version: 3.0.25
+    version: 3.0.26
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"- Restore the ability to select Rider installation
+    from the custom location\n- Fix possible extra project regeneration on moving
+    focus from Rider to Unity\n- Improve performance of code generation for very
+    large projects"}'
+  assetStore:
+    productId: 
 - packageId: com.unity.ide.visualstudio@2.0.22
   testable: 0
   isDirectDependency: 1
@@ -722,7 +794,6 @@ m_ResolvedPackages:
   description: Code editor integration for supporting Visual Studio as code editor
     for unity. Adds support for generating csproj files for intellisense purposes,
     auto discovery of installations, etc.
-  status: 0
   errors: []
   versions:
     all:
@@ -751,7 +822,6 @@ m_ResolvedPackages:
     - 2.0.21
     - 2.0.22
     compatible:
-    - 2.0.21
     - 2.0.22
     recommended: 2.0.22
     deprecated: []
@@ -760,9 +830,9 @@ m_ResolvedPackages:
     version: 1.1.9
   resolvedDependencies:
   - name: com.unity.test-framework
-    version: 1.1.33
+    version: 1.3.9
   - name: com.unity.ext.nunit
-    version: 1.0.6
+    version: 2.0.5
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
@@ -777,6 +847,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
   datePublishedTicks: 638326061910000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@2.0/manual/index.html
@@ -787,81 +859,24 @@ m_ResolvedPackages:
     revision: 700b44077345e97d37d464ff25507638983aed64
     path: 
   unityLifecycle:
-    version: 2.0.21
+    version: 2.0.22
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.ide.vscode@1.2.5
-  testable: 0
-  isDirectDependency: 1
-  version: 1.2.5
-  source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ide.vscode@1.2.5
-  assetPath: Packages/com.unity.ide.vscode
-  name: com.unity.ide.vscode
-  displayName: Visual Studio Code Editor
-  author:
-    name: 
-    email: 
-    url: 
-  category: 
-  type: asset
-  description: Code editor integration for supporting Visual Studio Code as code
-    editor for unity. Adds support for generating csproj files for intellisense purposes,
-    auto discovery of installations, etc.
-  status: 0
-  errors: []
-  versions:
-    all:
-    - 1.0.2
-    - 1.0.3
-    - 1.0.7
-    - 1.1.0
-    - 1.1.2
-    - 1.1.3
-    - 1.1.4
-    - 1.2.0
-    - 1.2.1
-    - 1.2.2
-    - 1.2.3
-    - 1.2.4
-    - 1.2.5
-    compatible:
-    - 1.2.5
-    recommended: 1.2.5
-    deprecated: []
-  dependencies: []
-  resolvedDependencies: []
-  keywords: []
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 637800255360000000
-  documentationUrl: 
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.com/Unity-Technologies/com.unity.ide.vscode.git
-    revision: b0740c80bfc2440527c317109f7c3d9100132722
-    path: 
-  unityLifecycle:
-    version: 1.2.5
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"Integration:\n\n- Add support for `XDG_DATA_DIRS` and
+    `.desktop` files on Linux for `VS Code` discovery.\n- Use compile-time platform-specifics
+    instead of using runtime conditions.\n\nProject generation:\n\n- Suppress `USG0001`
+    warnings.\n- Mark referenced assemblies as private (to not copy extra files to
+    output directory when building).\n- Add Unity capability to SDK-Style projects.\n-
+    Prevent circular dependency errors with SDK-Style projects."}'
+  assetStore:
+    productId: 
 - packageId: com.unity.inputsystem@1.7.0
   testable: 0
   isDirectDependency: 1
@@ -879,7 +894,6 @@ m_ResolvedPackages:
   type: assets
   description: A new input system which can be used as a more extensible and customizable
     alternative to Unity's classic input system in UnityEngine.Input.
-  status: 0
   errors: []
   versions:
     all:
@@ -944,6 +958,8 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
+  - name: com.unity.modules.hierarchycore
+    version: 1.0.0
   keywords:
   - input
   - events
@@ -962,6 +978,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
   datePublishedTicks: 638277060810000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/index.html
@@ -973,18 +991,45 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.7.0
-    nextVersion: 
+    nextVersion: 1.8.0-pre.1
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.test-framework@1.1.33
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Added\n- Preliminary support for visionOS.\n- Show
+    a list of `Derived Bindings` underneath the Binding Path editor to show all controls
+    that matched.\n\n### Changed\n- Changed the `InputAction` constructors so it
+    generates an ID for the action and the optional binding parameter. This is intended
+    to improve the serialization of input actions on behaviors when created through
+    API when the property drawer in the Inspector window does not have a chance to
+    generate an ID.\n\n### Fixed\n- Fixed missing prefab errors in InputDeviceTester
+    project ([case ISXB-420](https://issuetracker.unity3d.com/product/unity/issues/guid/ISXB-420)).\n-
+    Fixed serialization migration in the Tracked Pose Driver component causing bindings
+    to clear when prefabs are used in some cases ([case ISXB-512](https://issuetracker.unity3d.com/product/unity/issues/guid/ISXB-512),
+    [case ISXB-521](https://issuetracker.unity3d.com/product/unity/issues/guid/ISXB-521)).\n-
+    Fixed Tracked Pose Driver to use `Transform.SetLocalPositionAndRotation` when
+    available to improve performance. Based on the user contribution from [DevDunk](https://forum.unity.com/members/devdunk.4432119/)
+    in a [forum post](https://forum.unity.com/threads/more-performant-tracked-pose-driver-solution-included.1462691).\n-
+    Fixed the `Clone` methods of `InputAction` and `InputActionMap` so it copies
+    the Initial State Check flag (`InputAction.wantsInitialStateCheck`) of input
+    actions.\n- Fixed the \"Release tests throws exception in InputSystem\" bug ([case
+    ISXB-581](https://issuetracker.unity3d.com/issues/release-tests-fail-when-input-system-package-is-installed)).\n-
+    Fixed issues with generating Precompiled Layouts for devices which are not defined
+    in a namespace\n- Fixed an issue where some controls like `QuaternionControl`
+    could not be included in a Precompiled Layout because the generated code could
+    not access a setter on child control properties."}'
+  assetStore:
+    productId: 
+- packageId: com.unity.test-framework@1.3.9
   testable: 0
   isDirectDependency: 1
-  version: 1.1.33
+  version: 1.3.9
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.test-framework@1.1.33
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.test-framework@1.3.9
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -993,9 +1038,8 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Unity Test Framework
-  type: asset
+  type: assets
   description: Test framework for running Edit mode and Play mode tests in Unity.
-  status: 0
   errors: []
   versions:
     all:
@@ -1049,15 +1093,6 @@ m_ResolvedPackages:
     - 2.0.1-pre.12
     - 2.0.1-pre.18
     compatible:
-    - 1.1.33
-    - 1.3.0
-    - 1.3.1
-    - 1.3.2
-    - 1.3.3
-    - 1.3.4
-    - 1.3.5
-    - 1.3.7
-    - 1.3.8
     - 1.3.9
     - 1.4.0
     - 1.4.1
@@ -1065,18 +1100,18 @@ m_ResolvedPackages:
     - 2.0.1-exp.2
     - 2.0.1-pre.12
     - 2.0.1-pre.18
-    recommended: 1.1.33
+    recommended: 1.3.9
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
-    version: 1.0.6
+    version: 2.0.3
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   resolvedDependencies:
   - name: com.unity.ext.nunit
-    version: 1.0.6
+    version: 2.0.5
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
@@ -1093,210 +1128,43 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637938212700000000
-  documentationUrl: 
+  datePublishedTicks: 638283169810000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.test-framework@1.3/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.com/Unity-Technologies/com.unity.test-framework.git
-    revision: 34a4d423d64926635eb36d3bb86276179cc186e1
+    revision: 5c8a1448cee4d7607be0d60dceb66703b0cfe016
     path: 
   unityLifecycle:
-    version: 1.1.33
+    version: 1.3.9
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.textmeshpro@3.0.6
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"- By using the editor command line new argument `-randomOrderSeed
+    x` you can run the tests in a randomized order, where x is an integer different
+    from 0. If a new test is added in the project the random order passing the same
+    seed will be kept, and the new test will be placed in the random list accordigly.\n-
+    Fix for WebGL platform target to close the browser tab when the run is completed.
+    \n- Added TestFileReferences.json to be generated on build step of the player,
+    so can be consumed later by Test runners to enrich data for run part."}'
+  assetStore:
+    productId: 
+- packageId: com.unity.timeline@1.8.6
   testable: 0
   isDirectDependency: 1
-  version: 3.0.6
+  version: 1.8.6
   source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.textmeshpro@3.0.6
-  assetPath: Packages/com.unity.textmeshpro
-  name: com.unity.textmeshpro
-  displayName: TextMeshPro
-  author:
-    name: 
-    email: 
-    url: 
-  category: Text Rendering
-  type: asset
-  description: 'TextMeshPro is the ultimate text solution for Unity. It''s the perfect
-    replacement for Unity''s UI Text and the legacy Text Mesh.
-
-
-    Powerful and
-    easy to use, TextMeshPro (also known as TMP) uses Advanced Text Rendering techniques
-    along with a set of custom shaders; delivering substantial visual quality improvements
-    while giving users incredible flexibility when it comes to text styling and texturing.
-
-
-    TextMeshPro
-    provides Improved Control over text formatting and layout with features like
-    character, word, line and paragraph spacing, kerning, justified text, Links,
-    over 30 Rich Text Tags available, support for Multi Font & Sprites, Custom Styles
-    and more.
-
-
-    Great performance. Since the geometry created by TextMeshPro
-    uses two triangles per character just like Unity''s text components, this improved
-    visual quality and flexibility comes at no additional performance cost.'
-  status: 0
-  errors: []
-  versions:
-    all:
-    - 0.1.2
-    - 1.0.21
-    - 1.0.23
-    - 1.0.25
-    - 1.0.26
-    - 1.1.0
-    - 1.2.0
-    - 1.2.1
-    - 1.2.2
-    - 1.2.3
-    - 1.2.4
-    - 1.3.0-preview
-    - 1.3.0
-    - 1.4.0-preview.1b
-    - 1.4.0-preview.2a
-    - 1.4.0-preview.3a
-    - 1.4.0
-    - 1.4.1-preview.1
-    - 1.4.1
-    - 1.5.0-preview.1
-    - 1.5.0-preview.2
-    - 1.5.0-preview.3
-    - 1.5.0-preview.4
-    - 1.5.0-preview.5
-    - 1.5.0-preview.6
-    - 1.5.0-preview.7
-    - 1.5.0-preview.8
-    - 1.5.0-preview.10
-    - 1.5.0-preview.11
-    - 1.5.0-preview.12
-    - 1.5.0-preview.13
-    - 1.5.0-preview.14
-    - 1.5.0
-    - 1.5.1
-    - 1.5.3
-    - 1.5.4
-    - 1.5.5
-    - 1.5.6
-    - 1.6.0-preview.1
-    - 2.0.0
-    - 2.0.1-preview.1
-    - 2.0.1
-    - 2.1.0-preview.1
-    - 2.1.0-preview.2
-    - 2.1.0-preview.3
-    - 2.1.0-preview.4
-    - 2.1.0-preview.5
-    - 2.1.0-preview.7
-    - 2.1.0-preview.8
-    - 2.1.0-preview.10
-    - 2.1.0-preview.11
-    - 2.1.0-preview.12
-    - 2.1.0-preview.13
-    - 2.1.0-preview.14
-    - 2.1.0
-    - 2.1.1
-    - 2.1.3
-    - 2.1.4
-    - 2.1.5
-    - 2.1.6
-    - 2.2.0-preview.1
-    - 2.2.0-preview.2
-    - 2.2.0-preview.3
-    - 3.0.0-preview.1
-    - 3.0.0-preview.3
-    - 3.0.0-preview.4
-    - 3.0.0-preview.5
-    - 3.0.0-preview.7
-    - 3.0.0-preview.8
-    - 3.0.0-preview.10
-    - 3.0.0-preview.11
-    - 3.0.0-preview.12
-    - 3.0.0-preview.13
-    - 3.0.0-preview.14
-    - 3.0.0
-    - 3.0.1
-    - 3.0.3
-    - 3.0.4
-    - 3.0.5
-    - 3.0.6
-    - 3.2.0-pre.1
-    - 3.2.0-pre.2
-    - 3.2.0-pre.3
-    - 3.2.0-pre.4
-    - 3.2.0-pre.5
-    - 3.2.0-pre.6
-    - 4.0.0-pre.1
-    - 4.0.0-pre.2
-    compatible:
-    - 3.0.6
-    - 3.2.0-pre.1
-    - 3.2.0-pre.2
-    - 3.2.0-pre.3
-    - 3.2.0-pre.4
-    - 3.2.0-pre.5
-    - 3.2.0-pre.6
-    - 4.0.0-pre.1
-    - 4.0.0-pre.2
-    recommended: 3.0.6
-    deprecated: []
-  dependencies:
-  - name: com.unity.ugui
-    version: 1.0.0
-  resolvedDependencies:
-  - name: com.unity.ugui
-    version: 1.0.0
-  - name: com.unity.modules.ui
-    version: 1.0.0
-  - name: com.unity.modules.imgui
-    version: 1.0.0
-  keywords:
-  - TextMeshPro
-  - TextMesh Pro
-  - TMP
-  - Text
-  - SDF
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 637547111200000000
-  documentationUrl: 
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.cds.internal.unity3d.com/unity/com.unity.textmeshpro.git
-    revision: 01e57e3b7de18af9dfe9baaa0a0ff5cc4765c899
-    path: 
-  unityLifecycle:
-    version: 3.0.6
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
-- packageId: com.unity.timeline@1.7.6
-  testable: 0
-  isDirectDependency: 1
-  version: 1.7.6
-  source: 1
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.timeline@1.7.6
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.timeline@1.8.6
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -1308,7 +1176,6 @@ m_ResolvedPackages:
   type: assets
   description: Use Unity Timeline to create cinematic content, game-play sequences,
     audio sequences, and complex particle effects.
-  status: 0
   errors: []
   versions:
     all:
@@ -1398,16 +1265,8 @@ m_ResolvedPackages:
     - 1.8.5
     - 1.8.6
     compatible:
-    - 1.7.5
-    - 1.7.6
-    - 1.8.0
-    - 1.8.1
-    - 1.8.2
-    - 1.8.3
-    - 1.8.4
-    - 1.8.5
     - 1.8.6
-    recommended: 1.7.6
+    recommended: 1.8.6
     deprecated: []
   dependencies:
   - name: com.unity.modules.director
@@ -1442,29 +1301,44 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638326112840000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.timeline@1.7/manual/index.html
+  datePublishedTicks: 638326112870000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.timeline@1.8/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.timeline.git
-    revision: 02f49ada64a9f88044207cf42ba407dc634ef8e6
+    revision: 9b8cc7590b7d733181284f1a846a02406b5524d8
     path: 
   unityLifecycle:
-    version: 1.7.5
+    version: 1.8.6
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.ugui@1.0.0
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Changed\n\n- In the `Create Asset` menu, the `Signal`
+    and `Timeline` items have been moved to the `Timeline` submenu.\n\n### Fixed\n\n-
+    Fixed issue where changing the name of a group track was not undoable ([TB-218](https://issuetracker.unity3d.com/issues/timeline-track-group-renaming-doesnt-go-into-the-undo-history)).\n-
+    Fixed issue where a warning would be logged in the console for `TrackAsset` ([TB-229](https://issuetracker.unity3d.com/product/unity/issues/guid/TB-229)).\n-
+    Fixed performance regression when rebuilding the playable graph.\n- Fixed a `MissingReferenceException`
+    when editing a Timeline that is an instance of a prefab and a bound `Animator`
+    is destroyed ([TB-222](https://issuetracker.unity3d.com/issues/timeline-missingreferenceexceptions-when-undoing-add-animator-from-timeline))\n-
+    Removed warnings due to obsolete analytics API."}'
+  assetStore:
+    productId: 
+- packageId: com.unity.ugui@2.0.0
   testable: 0
   isDirectDependency: 1
-  version: 1.0.0
+  version: 2.0.0
   source: 2
-  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ugui@1.0.0
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.ugui@2.0.0
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -1478,16 +1352,17 @@ m_ResolvedPackages:
     and applications. It is a GameObject-based UI system that uses Components and
     the Game View to arrange, position, and style user interfaces. \u200B You cannot
     use Unity UI to create or change user interfaces in the Unity Editor."
-  status: 0
   errors: []
   versions:
     all:
-    - 1.0.0
+    - 2.0.0
     - 3.0.0-exp.1
     - 3.0.0-exp.3
     compatible:
-    - 1.0.0
-    recommended: 1.0.0
+    - 2.0.0
+    - 3.0.0-exp.1
+    - 3.0.0-exp.3
+    recommended: 2.0.0
     deprecated: []
   dependencies:
   - name: com.unity.modules.ui
@@ -1504,6 +1379,11 @@ m_ResolvedPackages:
   - ugui
   - Unity UI
   - Canvas
+  - TextMeshPro
+  - TextMesh Pro
+  - Text
+  - TMP
+  - SDF
   registry:
     id: main
     name: 
@@ -1513,6 +1393,70 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 2.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
+- packageId: com.unity.modules.accessibility@1.0.0
+  testable: 0
+  isDirectDependency: 1
+  version: 1.0.0
+  source: 2
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.modules.accessibility@1.0.0
+  assetPath: Packages/com.unity.modules.accessibility
+  name: com.unity.modules.accessibility
+  displayName: Accessibility
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: module
+  description: 'The Accessibility module includes utilities to facilitate the development
+    of accessible user experiences in Unity. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.AccessibilityModule.html'
+  errors: []
+  versions:
+    all:
+    - 1.0.0
+    compatible:
+    - 1.0.0
+    recommended: 1.0.0
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1530,6 +1474,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.ai@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1547,7 +1497,6 @@ m_ResolvedPackages:
   type: module
   description: 'The AI module implements the path finding features in Unity. Scripting
     API: https://docs.unity3d.com/ScriptReference/UnityEngine.AIModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1568,6 +1517,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1585,6 +1536,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.androidjni@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1601,7 +1558,6 @@ m_ResolvedPackages:
   category: 
   type: module
   description: 'AndroidJNI module allows you to call Java code. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.AndroidJNIModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1622,6 +1578,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1639,6 +1597,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.animation@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1656,7 +1620,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Animation module implements Unity''s animation system. Scripting
     API: https://docs.unity3d.com/ScriptReference/UnityEngine.AnimationModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1677,6 +1640,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1694,6 +1659,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.assetbundle@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1711,7 +1682,6 @@ m_ResolvedPackages:
   type: module
   description: 'The AssetBundle module implements the AssetBundle class and related
     APIs to load data from AssetBundles. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.AssetBundleModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1732,6 +1702,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1749,6 +1721,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.audio@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1766,7 +1744,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Audio module implements Unity''s audio system. Scripting API:
     https://docs.unity3d.com/ScriptReference/UnityEngine.AudioModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1787,6 +1764,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1804,6 +1783,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.cloth@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1821,7 +1806,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Cloth module implements cloth physics simulation through the
     Cloth component. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.ClothModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1846,6 +1830,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1863,6 +1849,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.director@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1880,7 +1872,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Director module implements the PlayableDirector class. Scripting
     API: https://docs.unity3d.com/ScriptReference/UnityEngine.DirectorModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -1909,6 +1900,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1926,6 +1919,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.imageconversion@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1942,9 +1941,7 @@ m_ResolvedPackages:
   category: 
   type: module
   description: 'The ImageConversion module implements the ImageConversion class which
-    provides helper methods to convert images from and to PNG, JPEG or EXR formats.
-    Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.ImageConversionModule.html'
-  status: 0
+    provides helper methods for converting image data. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.ImageConversionModule.html'
   errors: []
   versions:
     all:
@@ -1965,6 +1962,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -1982,6 +1981,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.imgui@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -1999,7 +2004,6 @@ m_ResolvedPackages:
   type: module
   description: 'The IMGUI module provides Unity''s immediate mode GUI solution for
     creating in-game and editor user interfaces. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.IMGUIModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2020,6 +2024,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2037,6 +2043,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.jsonserialize@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2054,7 +2066,6 @@ m_ResolvedPackages:
   type: module
   description: 'The JSONSerialize module provides the JsonUtility class which lets
     you serialize Unity Objects to JSON format. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.JSONSerializeModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2075,6 +2086,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2092,6 +2105,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.particlesystem@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2109,7 +2128,6 @@ m_ResolvedPackages:
   type: module
   description: 'The ParticleSystem module implements Unity''s Particle System. Scripting
     API: https://docs.unity3d.com/ScriptReference/UnityEngine.ParticleSystemModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2130,6 +2148,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2147,6 +2167,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.physics@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2164,7 +2190,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Physics module implements 3D physics in Unity. Scripting API:
     https://docs.unity3d.com/ScriptReference/UnityEngine.PhysicsModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2185,6 +2210,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2202,6 +2229,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.physics2d@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2219,7 +2252,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Physics2d module implements 2D physics in Unity. Scripting API:
     https://docs.unity3d.com/ScriptReference/UnityEngine.Physics2DModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2240,6 +2272,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2257,6 +2291,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.screencapture@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2274,7 +2314,6 @@ m_ResolvedPackages:
   type: module
   description: 'The ScreenCapture module provides functionality to take screen shots
     using the ScreenCapture class. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.ScreenCaptureModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2299,6 +2338,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2316,6 +2357,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.terrain@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2333,7 +2380,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Terrain module implements Unity''s Terrain rendering engine available
     through the Terrain component. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.TerrainModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2354,6 +2400,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2371,6 +2419,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.terrainphysics@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2388,7 +2442,6 @@ m_ResolvedPackages:
   type: module
   description: 'The TerrainPhysics module connects the Terrain and Physics modules
     by implementing the TerrainCollider component. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.TerrainPhysicsModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2417,6 +2470,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2434,6 +2489,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.tilemap@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2450,7 +2511,6 @@ m_ResolvedPackages:
   category: 
   type: module
   description: 'The Tilemap module implements the Tilemap class. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.TilemapModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2475,6 +2535,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2492,6 +2554,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.ui@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2509,7 +2577,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UI module implements basic components required for Unity''s UI
     system Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UIModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2530,6 +2597,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2547,6 +2616,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.uielements@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2564,7 +2639,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UIElements module implements the UIElements retained mode UI
     framework. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UIElementsModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2580,12 +2654,16 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
+  - name: com.unity.modules.hierarchycore
+    version: 1.0.0
   resolvedDependencies:
   - name: com.unity.modules.ui
     version: 1.0.0
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.modules.hierarchycore
     version: 1.0.0
   keywords: []
   registry:
@@ -2597,6 +2675,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2614,6 +2694,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.umbra@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2631,7 +2717,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Umbra module implements Unity''s occlusion culling system. Scripting
     API: https://docs.unity3d.com/ScriptReference/UnityEngine.UmbraModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2652,6 +2737,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2669,6 +2756,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unityanalytics@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2686,7 +2779,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityAnalytics module implements APIs required to use Unity Analytics.
     Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityAnalyticsModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2715,6 +2807,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2732,6 +2826,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unitywebrequest@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2749,7 +2849,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityWebRequest module lets you communicate with http services.
     Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityWebRequestModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2770,6 +2869,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2787,6 +2888,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unitywebrequestassetbundle@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2804,7 +2911,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityWebRequestAssetBundle module provides the DownloadHandlerAssetBundle
     class to use UnityWebRequest to download Asset Bundles. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityWebRequestAssetBundleModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2833,6 +2939,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2850,6 +2958,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unitywebrequestaudio@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2867,7 +2981,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityWebRequestAudio module provides the DownloadHandlerAudioClip
     class to use UnityWebRequest to download AudioClips. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityWebRequestAudioModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2896,6 +3009,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2913,6 +3028,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unitywebrequesttexture@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2930,7 +3051,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityWebRequestTexture module provides the DownloadHandlerTexture
     class to use UnityWebRequest to download Textures. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityWebRequestTextureModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -2959,6 +3079,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -2976,6 +3098,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.unitywebrequestwww@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -2993,7 +3121,6 @@ m_ResolvedPackages:
   type: module
   description: 'The UnityWebRequestWWW module implements the legacy WWW lets you
     communicate with http services. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.UnityWebRequestWWWModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3038,6 +3165,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3055,6 +3184,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.vehicles@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -3072,7 +3207,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Vehicles module implements vehicle physics simulation through
     the WheelCollider component. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.VehiclesModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3097,6 +3231,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3114,6 +3250,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.video@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -3131,7 +3273,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Video module lets you play back video files in your content.
     Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.VideoModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3164,6 +3305,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3181,6 +3324,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.vr@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -3198,7 +3347,6 @@ m_ResolvedPackages:
   type: module
   description: 'The VR module implements support for virtual reality devices in Unity.
     Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.VRModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3233,6 +3381,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3250,6 +3400,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.wind@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -3267,7 +3423,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Wind module implements the WindZone component which can affect
     terrain rendering and particle simulations. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.WindModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3288,6 +3443,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3305,6 +3462,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.xr@1.0.0
   testable: 0
   isDirectDependency: 1
@@ -3322,7 +3485,6 @@ m_ResolvedPackages:
   type: module
   description: 'The XR module contains the VR and AR related platform support functionality.
     Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.XRModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3355,6 +3517,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3372,6 +3536,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.modules.subsystems@1.0.0
   testable: 0
   isDirectDependency: 0
@@ -3389,7 +3559,6 @@ m_ResolvedPackages:
   type: module
   description: 'The Subsystem module contains the definitions and runtime support
     for general subsystems in Unity. Scripting API: https://docs.unity3d.com/ScriptReference/UnityEngine.SubsystemsModule.html'
-  status: 0
   errors: []
   versions:
     all:
@@ -3414,6 +3583,8 @@ m_ResolvedPackages:
     capabilities: 7
     configSource: 0
   hideInEditor: 1
+  entitlements:
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 0
   documentationUrl: 
@@ -3431,3 +3602,71 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
+- packageId: com.unity.modules.hierarchycore@1.0.0
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.0
+  source: 2
+  resolvedPath: C:\Users\aksoy\Documents\Unity Workspace\Pixel Slash Adventure\Library\PackageCache\com.unity.modules.hierarchycore@1.0.0
+  assetPath: Packages/com.unity.modules.hierarchycore
+  name: com.unity.modules.hierarchycore
+  displayName: Hierarchy Core
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: module
+  description: 'Module that contains a high-performance hierarchy container. Scripting
+    API: https://docs.unity3d.com/ScriptReference/UnityEngine.HierarchyCoreModule.html'
+  errors: []
+  versions:
+    all:
+    - 1.0.0
+    compatible:
+    - 1.0.0
+    recommended: 1.0.0
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
