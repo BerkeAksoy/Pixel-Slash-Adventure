@@ -430,7 +430,7 @@
 "Assets/_Scripts/Pets/Pet.cs"
 "Assets/_Scripts/Pets/SkullSpider.cs"
 "Assets/_Scripts/Player/BreatabilityChecker.cs"
-"Assets/_Scripts/Player/CharController.cs"
+"Assets/_Scripts/Player/CharHorizontalController.cs"
 "Assets/_Scripts/Player/CharJumpController.cs"
 "Assets/_Scripts/Player/CharStats.cs"
 "Assets/_Scripts/Player/EmotionalStateDefiner.cs"

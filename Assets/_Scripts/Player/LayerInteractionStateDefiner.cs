@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace BerkeAksoyCode
@@ -8,9 +9,9 @@ namespace BerkeAksoyCode
     {
 
         [SerializeField] private LayerMask groundLayer, waterLayer;
-        [SerializeField] private Vector3 footOffset = new Vector3(0.2f, 0, 0);
+        [SerializeField] private Vector3 footOffset = new Vector3(0.18f, 0, 0);
         private bool onGround, inWater;
-        private float groundRayLength = 0.7f, waterRayLength = 0.2f;
+        [SerializeField] private float groundRayLength = 0.2f, waterRayLength = 0.2f;
         private CharLayerInteractionStatus charLayerIntStatus;
 
         public enum CharLayerInteractionStatus
@@ -35,22 +36,22 @@ namespace BerkeAksoyCode
             if (onGround && !inWater) // On dry land
             {
                 charLayerIntStatus = CharLayerInteractionStatus.OnDryLand;
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.green, groundRayLength);
+                Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.green, 0.1f);
             }
             else if (inWater && !onGround) // Swimming
             {
                 charLayerIntStatus = CharLayerInteractionStatus.Swimming;
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.yellow, groundRayLength);
+                Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.yellow, 0.1f);
             }
             else if (inWater && onGround) // Walking in water
             {
                 charLayerIntStatus = CharLayerInteractionStatus.WaterWalking;
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.blue, groundRayLength);
+                Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.blue, 0.1f);
             }
             else if (!onGround && !inWater) // On Air
             {
                 charLayerIntStatus = CharLayerInteractionStatus.OnAir;
-                Debug.DrawRay(transform.position - footOffset, Vector2.down, Color.red, groundRayLength);
+                Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.red, 0.1f);
             }
         }
 

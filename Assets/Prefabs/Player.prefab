@@ -620,6 +620,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569944835251497}
   m_Enabled: 0
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -643,7 +644,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.36298513, y: 0.012964532}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
@@ -654,7 +656,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.5836816, y: 0.8966379}
   m_EdgeRadius: 0
 --- !u!114 &6572569944835251501
@@ -781,6 +782,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -825,6 +828,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569945535123519}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 6200000, guid: ee748a80ea1621a4eb74919847639ed4, type: 2}
   m_IncludeLayers:
@@ -848,7 +852,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.05558586, y: -0.003348887}
   m_Size: {x: 0.4792385, y: 1.0263711}
   m_Direction: 0
@@ -958,6 +963,7 @@ GameObject:
   - component: {fileID: 6572569945786852466}
   - component: {fileID: 5374928079145029618}
   - component: {fileID: 8182160681789042152}
+  - component: {fileID: 757801011677669888}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -986,7 +992,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6572569945786852462
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1000,6 +1006,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1013,7 +1020,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572569945786852458}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -1028,7 +1035,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -1133,7 +1140,9 @@ MonoBehaviour:
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
-  footOffset: {x: 0.2, y: 0, z: 0}
+  footOffset: {x: 0.15, y: 0, z: 0}
+  groundRayLength: 0.6
+  waterRayLength: 0.6
 --- !u!114 &8182160681789042152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,19 +1162,31 @@ MonoBehaviour:
   maxGroundDeceleration: 40
   maxWaterAcceleration: 30
   maxWaterDeceleration: 50
-  maxAirAcceleration: 20
-  maxAirDeceleration: 50
-  maxSpeed: 10
+  maxAirAcceleration: 8
+  maxAirDeceleration: 8
+  maxSpeed: 6
   useAcceleration: 1
   useAirAssist: 1
-  jumpHeight: 8
-  timeToJumpApex: 0.841
+--- !u!114 &757801011677669888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d097b34aef9704a932cbac976cbd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 6
+  timeToJumpApex: 0.5
   upwardMoveMult: 1
-  downwardMoveMult: 6.17
+  downwardMoveMult: 6
   maxAirJumps: 1
   variableJumpHeight: 1
-  jumpCutOff: 1
-  fallSpeedLimit: 80
+  variableJumpVelocity: 1
+  jumpCutOff: 2
+  fallSpeedLimit: 20
   coyoteTime: 0.1
   jumpBuffer: 0.1
-  alwaysFullThrust: 0
