@@ -22,7 +22,6 @@ namespace BerkeAksoyCode
             OnAir,
             OnLadder
         }
-
         private void FixedUpdate()
         {
             CheckLayerInteractionState();
@@ -33,22 +32,22 @@ namespace BerkeAksoyCode
             onGround = Physics2D.Raycast(transform.position - footOffset, Vector2.down, groundRayLength, groundLayer) || Physics2D.Raycast(transform.position + footOffset, Vector2.down, groundRayLength, groundLayer);
             inWater = Physics2D.Raycast(transform.position, Vector2.down, waterRayLength, waterLayer);
 
-            if (onGround && !inWater) // On dry land
+            if (onGround && !inWater && charLayerIntStatus != CharLayerInteractionStatus.OnDryLand) // On dry land
             {
                 charLayerIntStatus = CharLayerInteractionStatus.OnDryLand;
                 Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.green, 0.1f);
             }
-            else if (inWater && !onGround) // Swimming
+            else if (inWater && !onGround && charLayerIntStatus != CharLayerInteractionStatus.Swimming) // Swimming
             {
                 charLayerIntStatus = CharLayerInteractionStatus.Swimming;
                 Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.yellow, 0.1f);
             }
-            else if (inWater && onGround) // Walking in water
+            else if (inWater && onGround && charLayerIntStatus != CharLayerInteractionStatus.WaterWalking) // Walking in water
             {
                 charLayerIntStatus = CharLayerInteractionStatus.WaterWalking;
                 Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.blue, 0.1f);
             }
-            else if (!onGround && !inWater) // On Air
+            else if (!onGround && !inWater && charLayerIntStatus != CharLayerInteractionStatus.OnAir) // On Air
             {
                 charLayerIntStatus = CharLayerInteractionStatus.OnAir;
                 Debug.DrawRay(transform.position - footOffset, new Vector2(0, -groundRayLength), Color.red, 0.1f);

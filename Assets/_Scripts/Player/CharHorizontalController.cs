@@ -25,7 +25,8 @@ namespace BerkeAksoyCode {
         private bool feared;
         private float climbingSpeed;
 
-        //-----------------------------------------------------------------------------------------------------------------------------
+        public Vector2 CurVelocity { get => curVelocity;}
+        public Rigidbody2D MyRB2D { get => myRB2D; set => myRB2D = value; }
 
         private void Awake()
         {

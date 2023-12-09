@@ -436,6 +436,7 @@
 "Assets/_Scripts/Player/EmotionalStateDefiner.cs"
 "Assets/_Scripts/Player/LayerInteractionStateDefiner.cs"
 "Assets/_Scripts/Player/LevelUp.cs"
+"Assets/_Scripts/Player/MovementJuice.cs"
 "Assets/_Scripts/Player/Player.cs"
 "Assets/_Scripts/Projectiles/Arrow.cs"
 "Assets/_Scripts/Projectiles/BlueBossEffect.cs"

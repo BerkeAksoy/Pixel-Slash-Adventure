@@ -9,6 +9,7 @@ namespace BerkeAksoyCode
         private Rigidbody2D myRB2D;
         private LayerInteractionStateDefiner layerIntStatusDefiner;
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
+        private MovementJuice movementJuice;
         private Vector2 curVelocity;
 
         [Header("Jumping Stats")]
@@ -52,20 +53,23 @@ namespace BerkeAksoyCode
         [Tooltip("How long should coyote time last?")]
         private float coyoteTime = 0.1f;
 
-        [SerializeField, Range(0f, 0.3f)]
+        [SerializeField, Range(0f, 0.2f)]
         [Tooltip("How far from ground should we cache your jump?")]
         private float jumpBuffer = 0.1f;
 
         private float jumpVelocity, gravMultiplier, defaultGravityScale = 1f;
 
         [Header("Current State")]
-        private float coyoteTimeCounter = 0, jumpBufferCounter;
+        private float coyoteTimeCounter = 0, jumpBufferCounter = 0;
         private bool pressingJump, canJumpAgain = false, currentlyJumping, desiredJump;
+
+        public LayerInteractionStateDefiner.CharLayerInteractionStatus CharLayerIntStatus { get => charLayerIntStatus;}
 
         private void Awake()
         {
             myRB2D = GetComponent<Rigidbody2D>();
             layerIntStatusDefiner = GetComponent<LayerInteractionStateDefiner>();
+            movementJuice = GetComponent<MovementJuice>();
         }
 
         private void Update()
@@ -93,7 +97,8 @@ namespace BerkeAksoyCode
             if (desiredJump)
             {
                 DoAJump();
-                myRB2D.velocity = new Vector2(myRB2D.velocity.x, Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 100));
+                curVelocity.y = Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 200);
+                myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y);
                 return; // Skip gravity calculations this frame, so currentlyJumping doesn't turn off. This makes sure you can't do the coyote time double jump bug.
             }
 
@@ -105,7 +110,8 @@ namespace BerkeAksoyCode
         {
             Vector2 newGravity = new Vector2(0, (-2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2)); // (1/2)*g*(t^2) = h
             myRB2D.gravityScale = (newGravity.y / Physics2D.gravity.y) * gravMultiplier;
-            myRB2D.velocity = new Vector2(myRB2D.velocity.x, Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 100)); // We are setting the y velocity to implement jump and to limit falling speed. Gravity handled by unity physics2D.
+            curVelocity.y = Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 200);
+            myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y); // We are setting the y velocity to implement jump and to limit falling speed. Gravity handled by unity physics2D.
         }
 
         private void DefineGravityMultiplier() // We change the character's gravity based on her Y direction
@@ -160,23 +166,19 @@ namespace BerkeAksoyCode
             if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
             {
                 desiredJump = false;
-                coyoteTimeCounter = 0;
                 canJumpAgain = (maxAirJumps == 1 && canJumpAgain == false);
+                coyoteTimeCounter = 0;
 
                 AdjustJumpSpeed();
-
                 jumpBufferCounter = 0;
 
                 curVelocity.y += jumpVelocity;
-
                 currentlyJumping = true;
-                Debug.Log("Jump");
 
-                /*if (juice != null)
+                if (movementJuice != null)
                 {
-                    //Apply the jumping effects on the juice script
-                    juice.jumpEffects();
-                }*/
+                    movementJuice.JumpEffects();
+                }
             }
 
             if (jumpBuffer == 0) // If we don't have a jump buffer, then turn off desiredJump immediately after hitting jumping
@@ -202,10 +204,10 @@ namespace BerkeAksoyCode
                 }
                 else
                 {
-                    if (jumpBufferCounter > 0.03f) // (Also read below comment that starts with okay.) If an eagle captures our char and rises constantly and our char presses space when the eagle let us go, the char will have positive y velocity. At that specific time if our char hits a ground he will jump with wrong gravityScale thus, we correct it. I know this is a long shot but it is a must to do.
+                    if (jumpBufferCounter >= 0.03f) // (Also read below comment that starts with okay.) if we are using jump buffer we need to check whether we do jump due to jump buffer or not because if we jump immediately after touching the ground layer, one frame delay will cause wrong gravityScale calculation.
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / jumpCutOff) * jumpHeight);
-                        Debug.Log("corrected version up");
+                        //Debug.Log("corrected version up");
                     }
                     else
                     {
@@ -216,7 +218,7 @@ namespace BerkeAksoyCode
                 if (variableJumpVelocity)
                 {
                     jumpVelocity = Mathf.Max(jumpVelocity - curVelocity.y, 0f); // Adds as much as lost jump velocity, player needs to be experienced to achieve highest double jump
-                    Debug.Log("Jump with a velocity " + jumpVelocity);
+                    //Debug.Log("Jump with a velocity " + jumpVelocity);
                 }
                 else
                 {
@@ -229,12 +231,12 @@ namespace BerkeAksoyCode
                 {
                     jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / downwardMoveMult) * jumpHeight);
                 }
-                else // okaaay but if we are using jump buffer we need to check whether we do jump due to jump buffer or not. Because if we jump immediately after touching the ground layer one frame delay will cause wrong gravityScale calculation. 
+                else // okaaay, if an eagle captures our char and rises constantly and our char presses space when the eagle let us go, the char will have positive y velocity. At that specific time if our char hits a ground he will jump with wrong gravityScale thus, we correct it. I know this is a long shot but it is a must to do.
                 {
-                    if (jumpBufferCounter > 0.03f)
+                    if (jumpBufferCounter >= 0.03f)
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / downwardMoveMult) * jumpHeight);
-                        Debug.Log("corrected version down");
+                        //Debug.Log("corrected version down");
                     }
                     else
                     {
@@ -244,7 +246,6 @@ namespace BerkeAksoyCode
 
                 float velY = myRB2D.velocity.y;
                 jumpVelocity += Mathf.Abs(velY); // Character immediately stops falling and starts rising
-                Debug.Log("Jump while falling with a velocity " + jumpVelocity + " Fall velocity is: " + velY);
             }
         }
 
