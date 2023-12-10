@@ -35,11 +35,11 @@ namespace BerkeAksoyCode
         private float landDrop = 1;
 
         [Header("Tilting")]
-        [SerializeField] private bool leanForward;
+        [SerializeField] private bool leanBackward;
         [SerializeField] private bool tiltChar = false;
-        [SerializeField, Tooltip("How far should the character tilt?")]
-        private float maxTilt;
-        [SerializeField, Tooltip("How fast should the character tilt?")]
+        [SerializeField, Tooltip("How far should the character tilt?"), Range(0f, 15f)]
+        private float maxTilt = 6f;
+        [SerializeField, Tooltip("How fast should the character tilt?"), Range(0f, 30f)]
         private float tiltSpeed;
 
         [Header("Calculations")]
@@ -49,11 +49,16 @@ namespace BerkeAksoyCode
         // Current States
         private bool jumpSqueezing, landSqueezing, playerGrounded;
 
+        private void Awake()
+        {
+            //if (leanBackward) { maxTilt = -maxTilt; }
+        }
+
         void Start()
         {
             moveScript = GetComponent<CharHorizontalController>();
             jumpScript = GetComponent<CharJumpController>();
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             characterSprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         }
 
@@ -75,13 +80,14 @@ namespace BerkeAksoyCode
             if (moveScript.CurVelocity.x != 0) // See which direction the character is currently running towards, and tilt in that direction
             {
                 directionToTilt = Mathf.Sign(moveScript.CurVelocity.x);
+                if (leanBackward) { directionToTilt = -directionToTilt; }
             }
 
             //Create a vector that the character will tilt towards
             Vector3 targetRotVector = new Vector3(0, 0, Mathf.Lerp(-maxTilt, maxTilt, Mathf.InverseLerp(-1, 1, directionToTilt)));
 
             //And then rotate the character in that direction
-            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.Euler(-targetRotVector), tiltSpeed * Time.deltaTime);
+            characterSprite.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.Euler(-targetRotVector), tiltSpeed * Time.deltaTime);
         }
 
         private void SetAnimationSpeed()
@@ -152,7 +158,6 @@ namespace BerkeAksoyCode
             if (squashAndStretch && !jumpSqueezing && jumpSqueezeMultiplier >= 1)
             {
                 StartCoroutine(JumpSqueeze(jumpSquashSettings.x / jumpSqueezeMultiplier, jumpSquashSettings.y * jumpSqueezeMultiplier, jumpSquashSettings.z, 0, true));
-                Debug.Log("You need jumping squezeeee babe");
             }
 
             if (jumpParticles != null)

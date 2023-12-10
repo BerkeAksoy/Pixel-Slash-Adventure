@@ -89,7 +89,7 @@ namespace BerkeAksoyCode
             JumpBuffer();
         }
 
-        private void FixedUpdate()
+        private void FixedUpdate() // Known crucial bug, rarely jump does not work, maybe it is due to input getting or jumpBuffer
         {
             charLayerIntStatus = layerIntStatusDefiner.GetCharPhyStatus();
             curVelocity = myRB2D.velocity;

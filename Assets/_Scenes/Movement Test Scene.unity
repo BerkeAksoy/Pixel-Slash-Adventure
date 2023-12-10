@@ -5895,55 +5895,40 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 757801011677669888, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
-      propertyPath: jumpHeight
-      value: 3
+      propertyPath: maxTilt
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: landDrop
-      value: 0.3
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+        type: 3}
+      propertyPath: tiltSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+        type: 3}
+      propertyPath: leanBackward
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: jumpSquashSettings.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: jumpSquashSettings.y
-      value: 1.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: jumpSquashSettings.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: landSquashSettings.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: landSquashSettings.y
-      value: 0.9
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: landSquashSettings.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: jumpSqueezeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331999938599632377, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: landSqueezeMultiplier
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6572569945786852458, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}

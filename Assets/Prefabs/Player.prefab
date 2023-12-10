@@ -587,6 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2972932790701429045}
+  - component: {fileID: 1469144242281222737}
   - component: {fileID: 8443394415222378332}
   m_Layer: 10
   m_Name: Sprite
@@ -610,6 +611,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6572569945786852461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1469144242281222737
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382696638039455586}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa4efd066811cb9448a679f96a72ec8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8443394415222378332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -988,7 +1011,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6572569945786852461}
-  - component: {fileID: 4158076284364088794}
   - component: {fileID: 6572569945786852463}
   - component: {fileID: 6572569945786852460}
   - component: {fileID: 6572569945786852466}
@@ -1023,28 +1045,6 @@ Transform:
   - {fileID: 950453700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4158076284364088794
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572569945786852458}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fa4efd066811cb9448a679f96a72ec8c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &6572569945786852463
 Rigidbody2D:
   serializedVersion: 4
@@ -1070,7 +1070,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &6572569945786852460
 MonoBehaviour:
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d097b34aef9704a932cbac976cbd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 2
+  jumpHeight: 3
   timeToJumpApex: 0.5
   upwardMoveMult: 1
   downwardMoveMult: 2
@@ -1241,12 +1241,12 @@ MonoBehaviour:
   jumpSFX: {fileID: 0}
   landSFX: {fileID: 0}
   squashAndStretch: 1
-  jumpSquashSettings: {x: 0.6, y: 0.6, z: 1}
-  landSquashSettings: {x: 0.6, y: 0.6, z: 1}
-  landSqueezeMultiplier: 1.1
-  jumpSqueezeMultiplier: 1.1
-  landDrop: 1
+  jumpSquashSettings: {x: 0.5, y: 1.1, z: 0.25}
+  landSquashSettings: {x: 1.1, y: 0.9, z: 0.25}
+  landSqueezeMultiplier: 1
+  jumpSqueezeMultiplier: 1
+  landDrop: 0.3
   leanForward: 0
   tiltChar: 1
-  maxTilt: 0
-  tiltSpeed: 0
+  maxTilt: -10
+  tiltSpeed: 20
