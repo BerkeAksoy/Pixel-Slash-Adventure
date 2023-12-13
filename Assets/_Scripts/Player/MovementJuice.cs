@@ -110,7 +110,7 @@ namespace BerkeAksoyCode
                 //Play an animation, some particles, and a sound effect when the player lands
                 if (animator != null)
                 {
-                    //animator.SetTrigger("Landed");
+                    animator.SetTrigger("Landed");
                 }
 
                 if (landParticles != null)
@@ -146,7 +146,7 @@ namespace BerkeAksoyCode
         {
             if (animator != null)
             {
-                //animator.ResetTrigger("Landed");
+                animator.ResetTrigger("Landed");
                 animator.SetTrigger("Jump");
             }
 
