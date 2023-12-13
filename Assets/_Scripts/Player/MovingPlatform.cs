@@ -33,11 +33,11 @@ namespace BerkeAksoyCode
         {
             if (moveUpwards)
             {
-                rb.MovePosition(transform.position + moveDirection * Time.fixedDeltaTime);
+                rb.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
             }
             else
             {
-                rb.MovePosition(transform.position + -moveDirection * Time.fixedDeltaTime);
+                rb.MovePosition(transform.position + -moveDirection * speed * Time.fixedDeltaTime);
             }
         }
 
