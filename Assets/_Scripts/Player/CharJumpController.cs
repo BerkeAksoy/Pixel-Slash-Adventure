@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace BerkeAksoyCode
@@ -31,13 +32,12 @@ namespace BerkeAksoyCode
 
         [SerializeField, Range(0, 1)]
         [Tooltip("How many times can you jump in the air?")]
-        private int maxAirJumps = 0;
+        private int maxAirJumps = 1;
 
         [Header("Options")]
         [SerializeField]
         [Tooltip("If activated the player needs to hold jump key to achieve higher jump")]
         private bool variableJumpHeight;
-        [SerializeField]
         [Tooltip("Adds as much as lost jump velocity, player needs to be experienced to achieve highest double jump. Switching off is not recommended and it is experimental only.")]
         private bool variableJumpVelocity = true;
 
@@ -53,20 +53,24 @@ namespace BerkeAksoyCode
         [Tooltip("How long should coyote time last?")]
         private float coyoteTime = 0.1f;
 
-        [SerializeField, Range(0f, 0.2f)]
+        [SerializeField, Range(0f, 0.6f)]
         [Tooltip("How far from ground should we cache your jump?")]
         private float jumpBuffer = 0.1f;
 
         private float jumpVelocity, gravMultiplier, defaultGravityScale = 1f;
+        private int setOffFrames = 1, setOffFrameDecounter = 0;
+        private int curAirJumps;
 
         [Header("Current State")]
         private float coyoteTimeCounter = 0, jumpBufferCounter = 0;
-        private bool pressingJump, canJumpAgain = false, currentlyJumping, desiredJump;
+        private bool pressingJump, currentlyJumping, desiredJump;
 
         public LayerInteractionStateDefiner.CharLayerInteractionStatus CharLayerIntStatus { get => charLayerIntStatus;}
 
         private void Awake()
         {
+            setOffFrameDecounter = setOffFrames;
+            curAirJumps = maxAirJumps;
             myRB2D = GetComponent<Rigidbody2D>();
             layerIntStatusDefiner = GetComponent<LayerInteractionStateDefiner>();
             movementJuice = GetComponent<MovementJuice>();
@@ -90,26 +94,56 @@ namespace BerkeAksoyCode
         }
 
         private void FixedUpdate() // Known crucial bug, rarely jump does not work, maybe it is due to input getting or jumpBuffer
+                                   // Now it seems jump always work but jump velocity has a bug when jumping with jump buffer and variable height is problematic after jumpbuffer
         {
             charLayerIntStatus = layerIntStatusDefiner.GetCharPhyStatus();
             curVelocity = myRB2D.velocity;
 
-            if (desiredJump)
+            if (!pressingJump)
             {
-                DoAJump();
-                curVelocity.y = Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 200);
-                myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y);
-                return; // Skip gravity calculations this frame, so currentlyJumping doesn't turn off. This makes sure you can't do the coyote time double jump bug.
+                RenewAirJumps();
             }
 
             DefineGravityMultiplier();
             CalculateGravityScale();
+            if (desiredJump)
+            {
+                DoAJump();
+            }
+
+            ApplyVelocity();
+        }
+
+        private void RenewAirJumps()
+        {
+            if(currentlyJumping && charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand)
+            {
+                currentlyJumping = false;
+
+                /*setOffFrameDecounter--;
+
+                if (setOffFrameDecounter <= 0)
+                {
+                    setOffFrameDecounter = setOffFrames;
+                    currentlyJumping = false;
+                    Debug.Log("I am definitely on ground for 2 frames");
+                }*/
+
+                if (curAirJumps != maxAirJumps)
+                {
+                    curAirJumps = maxAirJumps;
+                }
+            }
         }
 
         private void CalculateGravityScale()
         {
             Vector2 newGravity = new Vector2(0, (-2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2)); // (1/2)*g*(t^2) = h
             myRB2D.gravityScale = (newGravity.y / Physics2D.gravity.y) * gravMultiplier;
+        }
+
+        private void ApplyVelocity()
+        {
             curVelocity.y = Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 200);
             myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y); // We are setting the y velocity to implement jump and to limit falling speed. Gravity handled by unity physics2D.
         }
@@ -125,13 +159,16 @@ namespace BerkeAksoyCode
 
                 if (variableJumpHeight)
                 {
+                    //Debug.Log(currentlyJumping);
                     if (pressingJump && currentlyJumping) // Apply upward multiplier if player is rising and holding jump
                     {
                         gravMultiplier = upwardMoveMult;
+                        //Debug.Log("holding Rise");
                     }
                     else // But apply a special downward multiplier if the player lets go of jump
                     {
                         gravMultiplier = jumpCutOff;
+                        //Debug.Log("Cutoff");
                     }
                 }
                 else
@@ -152,33 +189,25 @@ namespace BerkeAksoyCode
             }
             else // If the char is not moving vertically
             {
-                if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) // and if he is on the ground
+                if(charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand)
                 {
-                    currentlyJumping = false;
+                    //currentlyJumping = false;
                 }
 
                 gravMultiplier = defaultGravityScale;
             }
         }
 
-        private void DoAJump() // No jumping on the bottom of the water
+        private void DoAJump() // Define "WHY" we jumped. // No jumping on the bottom of the water
         {
-            if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
+            if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
             {
-                desiredJump = false;
-                canJumpAgain = (maxAirJumps == 1 && canJumpAgain == false);
-                coyoteTimeCounter = 0;
-
-                AdjustJumpSpeed();
-                jumpBufferCounter = 0;
-
-                curVelocity.y += jumpVelocity;
-                currentlyJumping = true;
-
-                if (movementJuice != null)
-                {
-                    movementJuice.JumpEffects();
-                }
+                realtarafi();
+            }
+            else if(curAirJumps > 0)
+            {
+                realtarafi();
+                curAirJumps--;
             }
 
             if (jumpBuffer == 0) // If we don't have a jump buffer, then turn off desiredJump immediately after hitting jumping
@@ -187,35 +216,49 @@ namespace BerkeAksoyCode
             }
         }
 
+        private void realtarafi()
+        {
+            desiredJump = false;
+            coyoteTimeCounter = 0;
+            jumpBufferCounter = 0;
+
+            AdjustJumpSpeed();
+            curVelocity.y += jumpVelocity;
+            currentlyJumping = true;
+
+            if (movementJuice != null)
+            {
+                movementJuice.JumpEffects();
+            }
+        }
+
         private void AdjustJumpSpeed() // If the char is moving up or down when the char jumps (such as when doing a double jump), adjust the jumpSpeed. This method will ensure the jump is the exact same strength, no matter the char's velocity.
         {
-            if (curVelocity.y >= 0f)
+            int reasonNo = 0;
+
+            if (myRB2D.velocity.y > 0.01f)
             {
-                if (charLayerIntStatus != LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) // If the char is not onGround then it means the char is either in cayote-time or canJumpAgain is true. Therefore, we need to calculate jump velocity according to gravityscale which will change after jump. Gravityscale changes because we alter it according to char's vertical movement status.
+                if (charLayerIntStatus != LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) // If the char is not onGround then it means the char is either in cayote-time or airJump is true. Therefore, we need to calculate jump velocity according to gravityscale which will change after jump. Gravityscale changes because we alter it according to char's vertical movement status.
                 {
-                    if (variableJumpHeight)
+                    jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRB2D.gravityScale * jumpHeight);
+                    /*if (variableJumpHeight)
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / jumpCutOff) * jumpHeight);
+                        reasonNo = 1; // 1
                     }
                     else
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / upwardMoveMult) * jumpHeight);
-                    }
+                        reasonNo = 2; // 2
+                    }*/
                 }
                 else
                 {
-                    if (jumpBufferCounter >= 0.03f) // (Also read below comment that starts with okay.) if we are using jump buffer we need to check whether we do jump due to jump buffer or not because if we jump immediately after touching the ground layer, one frame delay will cause wrong gravityScale calculation.
-                    {
-                        jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / jumpCutOff) * jumpHeight);
-                        //Debug.Log("corrected version up");
-                    }
-                    else
-                    {
-                        jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRB2D.gravityScale * jumpHeight);
-                    }
+                    jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRB2D.gravityScale * jumpHeight);
+                    reasonNo = 3; // 3
                 }
 
-                if (variableJumpVelocity)
+                if (variableJumpVelocity) // Must be true if not experimenting
                 {
                     jumpVelocity = Mathf.Max(jumpVelocity - curVelocity.y, 0f); // Adds as much as lost jump velocity, player needs to be experienced to achieve highest double jump
                     //Debug.Log("Jump with a velocity " + jumpVelocity);
@@ -225,28 +268,46 @@ namespace BerkeAksoyCode
                     jumpVelocity = Mathf.Max(jumpVelocity, 0f); // Always adds full jump velocity, eliminates player experience thus, reduces fun.
                 }
             }
-            else if (curVelocity.y < 0f)
+            else if (myRB2D.velocity.y < -0.01f)
             {
                 if (charLayerIntStatus != LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand) // If the char is not onGround then it means the char is either in cayote-time or canJumpAgain is true. Therefore, we need to calculate jump velocity according to gravityscale which will change after jump. Gravityscale changes because we alter it according to char's vertical movement status.
                 {
                     jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / downwardMoveMult) * jumpHeight);
+                    reasonNo = 4; // 4
                 }
                 else // okaaay, if an eagle captures our char and rises constantly and our char presses space when the eagle let us go, the char will have positive y velocity. At that specific time if our char hits a ground he will jump with wrong gravityScale thus, we correct it. I know this is a long shot but it is a must to do.
                 {
                     if (jumpBufferCounter >= 0.03f)
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / downwardMoveMult) * jumpHeight);
+                        reasonNo = 5; // 5
                         //Debug.Log("corrected version down");
                     }
                     else
                     {
                         jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRB2D.gravityScale * jumpHeight);
+                        reasonNo = 6; // 6
                     }
                 }
 
                 float velY = myRB2D.velocity.y;
                 jumpVelocity += Mathf.Abs(velY); // Character immediately stops falling and starts rising
             }
+            else // Character do not have any vertical velocity // Havada sifirda yakalarsan yanlis oluyor
+            {
+                /*if (jumpBufferCounter > 0.03f) // (Also read below comment that starts with okay.) if we are using jump buffer we need to check whether we do jump due to jump buffer or not because if we jump immediately after touching the ground layer, one frame delay will cause wrong gravityScale calculation.
+                {
+                    jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * (myRB2D.gravityScale / downwardMoveMult) * jumpHeight);
+                    reasonNo = 7; // 7
+                }
+                else
+                {*/
+                jumpVelocity = Mathf.Sqrt(-2f * Physics2D.gravity.y * myRB2D.gravityScale * jumpHeight);
+                Debug.Log("GravMult: " + gravMultiplier + " downMult: " + downwardMoveMult + " jump Height: " + jumpHeight);
+                reasonNo = 8;
+            }
+
+            Debug.Log(jumpVelocity + "Reason: " + reasonNo);
         }
 
         private void JumpBuffer() // Jump buffer allows us to queue up a jump, which will play when we next hit the ground
