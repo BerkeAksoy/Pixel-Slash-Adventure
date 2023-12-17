@@ -6131,7 +6131,7 @@ PrefabInstance:
     - target: {fileID: 2428923509057058994, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: chokeDamage
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428923509057058994, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
@@ -6201,6 +6201,16 @@ PrefabInstance:
     - target: {fileID: 6572569945786852461, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+        type: 3}
+      propertyPath: waterFriction
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+        type: 3}
+      propertyPath: groundFriction
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

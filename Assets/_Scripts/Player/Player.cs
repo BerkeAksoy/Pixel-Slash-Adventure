@@ -148,10 +148,10 @@ namespace BerkeAksoyCode
             {
                 stats.currentHP -= value;
 
-                myBody2D.sharedMaterial = null;
+                //myBody2D.sharedMaterial = null;
             }
 
-            if (value > 0)
+            /*if (value > 0)
             {
                 GameObject a = Instantiate(popUpText, transform.position, Quaternion.identity);
                 a.GetComponent<TextMeshPro>().text = value.ToString();
@@ -162,7 +162,7 @@ namespace BerkeAksoyCode
                 GameObject a = Instantiate(popUpText, transform.position, Quaternion.identity);
                 a.GetComponent<TextMeshPro>().text = "Missed!";
                 a.GetComponent<TextMeshPro>().color = Color.red;
-            }
+            }*/
 
             //stats.updateHealth();
 

@@ -11,15 +11,18 @@ namespace BerkeAksoyCode {
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
         private Vector2 curVelocity, desiredVelocity;
         private bool facingRight = true, pressingMoveKey;
-        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta; // friction = 0f;
+        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta,  friction = 0f;
 
         [SerializeField, Tooltip("See the code to understand how to calculate"), Range(0f, 50f)]
         private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 32f, maxAirTurnSpeed = 12f,
             maxGroundAcceleration = 40f, maxGroundDeceleration = 40f,
-            maxWaterAcceleration = 50f, maxWaterDeceleration = 50f,
+            maxWaterAcceleration = 20f, maxWaterDeceleration = 30f,
             maxAirAcceleration = 12f, maxAirDeceleration = 8f;
 
         [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
+
+        [SerializeField, Tooltip("Reduces max speed"), Range(0f, 10f)]
+        private float groundFriction = 0f, waterFriction = 4f, airFriction = 0f; 
         [SerializeField] private bool useAcceleration, useAirAssist;
         
         private bool feared;
@@ -34,12 +37,12 @@ namespace BerkeAksoyCode {
             layerIntStatusDefiner = GetComponent<LayerInteractionStateDefiner>();
         }
 
-        void Update()
+        private void Update()
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             pressingMoveKey = horizontalInput != 0 ? true : false;
 
-            desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed, 0f); // If friction is wanted, just subtract it from maxSpeed.
+            desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed - friction, 0f); // If friction is wanted, just subtract it from maxSpeed.
 
             if (pressingMoveKey)
             {
@@ -97,24 +100,28 @@ namespace BerkeAksoyCode {
                 acceleration = maxGroundAcceleration;
                 deceleration = maxGroundDeceleration;
                 turnSpeed = maxGroundTurnSpeed;
+                friction = groundFriction;
             }
             else if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.Swimming) || charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.WaterWalking))
             {
                 acceleration = maxWaterAcceleration;
                 deceleration = maxWaterDeceleration;
                 turnSpeed = maxWaterTurnSpeed;
+                friction = waterFriction;
             }
             else if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnAir))
             {
                 acceleration = maxAirAcceleration;
                 deceleration = maxAirDeceleration;
                 turnSpeed = maxAirTurnSpeed;
+                friction = airFriction;
             }
-            else
+            else // Default case
             {
                 acceleration = maxGroundAcceleration;
                 deceleration = maxGroundDeceleration;
                 turnSpeed = maxGroundTurnSpeed;
+                friction = groundFriction;
             }
         }
 
