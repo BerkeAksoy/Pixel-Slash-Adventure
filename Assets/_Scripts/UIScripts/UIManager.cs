@@ -396,7 +396,7 @@ namespace BerkeAksoyCode
 
             levelText.text = " Level " + stats.currentLevel.ToString();
             vitaText.text = " Vita " + stats.cVita.ToString();
-            expText.text = " Exp " + stats.currentXP.ToString() + " / " + stats.XPToNextLevel[stats.currentLevel - 1].ToString();
+            expText.text = " Exp " + stats.currentXP.ToString() + " / " + stats.ReqExpForNextLevel[stats.currentLevel - 1].ToString();
             strText.text = " Str " + stats.cStr.ToString();
             lifeText.text = " Life " + stats.currentHP.ToString() + " / " + (stats.maxHP + thp).ToString();
             dexText.text = " Dex " + (stats.cDex + tdefence).ToString();

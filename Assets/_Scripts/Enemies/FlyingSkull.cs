@@ -101,12 +101,12 @@ namespace BerkeAksoyCode
             {
                 health -= value;
                 knockback();
-                if (!myHB.activeInHierarchy && myHB != null)
+                if (!healthBar.activeInHierarchy && healthBar != null)
                 {
-                    myHB.SetActive(true);
+                    healthBar.SetActive(true);
                 }
 
-                myHB.GetComponent<HealthBar>().updateHealth(this);
+                healthBar.GetComponent<HealthBar>().updateHealth(this);
 
                 if (health > 0)
                 {
@@ -123,11 +123,11 @@ namespace BerkeAksoyCode
                     GetComponent<Dropper>().dropCoins();
                 }
                 isAlive = false;
-                if (myHB != null)
+                if (healthBar != null)
                 {
-                    myHB.SetActive(false);
+                    healthBar.SetActive(false);
                 }
-                player.stats.addXP(XPValue);
+                
                 StopAllCoroutines();
                 animator.SetTrigger("Die");
                 movementSpeed = 0;

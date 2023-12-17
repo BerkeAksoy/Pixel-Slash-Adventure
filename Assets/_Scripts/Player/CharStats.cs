@@ -1,78 +1,87 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace BerkeAksoyCode
 {
     public class CharStats : MonoBehaviour
     {
-
-        // Default Values
-
-        private const int mageBookSlotCount = 3, startLevel = 1, maxLevel = 99;
-        private const float _XPMultiplier = 1.06f, _CritMultiplier = 1.5f, _dmgMagnitude = 0.4f, _mgcMagnitude = 0.4f, _attackSpeed = 1.2f, _castSpeed = 0.4f;
-        private const int _Vita = 10, _Str = 10, _Dex = 10, _Energy = 10, _Intel = 10, _HP = 100, _Mana = 100, _Breath = 10, _phyDmg = 4, _mgcDmg = 4,
-            _critChance = 3, _missChance = 10, _manaRegen = 1, _HPRegen = 1;
-
-        public int[] XPToNextLevel = new int[maxLevel - 1];
+        // Limits defined by the game itself. Hardcoded.
+        private const int _MageBookHoldCapacity = 3, startLevel = 1, maxLevel = 99, _IniReqExp = 100;
+        
         public string characterName, selectedAttribute;
 
-        // Current Values
-        public int currentHP, currentMana, maxHP, maxMana, currentBreath, maxBreath, currentLevel = startLevel, totalGainedXP, currentXP, availablePoints, minDPS = 0, maxDPS = 0;
+        // [Header("Character's attributes")]
+        private const int _DefVitality = 10, _DefStr = 10, _DefDex = 10, _DefEnergy = 10, _DefInt = 10;
+        
+        private const float _DefCritMult = 1.5f, _dmgMagnitude = 0.4f, _mgcMagnitude = 0.4f, _attackSpeed = 1.2f, _castSpeed = 0.4f;
+
+        [Header("Dynamic base Powers' Capacities - They are calculated using *ONLY* char's attributes")]
+        [SerializeField, Tooltip("Char's current health point capacity")]
+        private int _HP = 100;
+        [SerializeField, Tooltip("Char's current mana point capacity")]
+        private int _Mana = 100;
+        
+        [Header("Static Base Powers - They are calculated using *ONLY* char's attributes")]
+        private int _phyDmg = 4, _mgcDmg = 4, _critChance = 3, _missChance = 10, _manaRegen = 1, _HPRegen = 1;
+
+        [SerializeField, Tooltip("Increases the gap between each level in terms of exp points"), Range(1f, 1.5f)]
+        private float reqExpMult = 1.06f;
+        [SerializeField, Tooltip("Required exp amount is shown for each next level")]
+        private int[] reqExpForNextLevel = new int[maxLevel - 1];
+
+        [Header("Current Base Power")]
         private int sVita = 0, sStr = 0, sDex = 0, sEnergy = 0, sIntel = 0;
+        public int currentHP, currentMana, maxHP, maxMana, currentLevel = startLevel, totalGainedXP, currentXP, availablePoints, minDPS = 0, maxDPS = 0;
         public int cVita, cStr, cDex, cEnergy, cIntel, cPhyDmg, cMgcDmg, cDef, cCritChance, cMissChance, cManaCostReduce, cManaRegen, cHPRegen;
+        [Header("Breath Values")]
+        private int breathCapacity = 20, curBreathLevel;
+        
         public int chosenSpellSlot = 0;
         public float cAttackSpeed, cCastSpeed, cXPMultiplier, cCritMultiplier, cDmgMagnitude, cMgcMagnitude;
 
-        // Temp Values
+        [Header("Temp Values")]
         private int tempVita, tempStr, tempDex, tempEnergy, tempIntel, tempPoints;
         public int tempCVita, tempCStr, tempCDex, tempCEnergy, tempCIntel;
         public bool inSession, canUndo;
-
-        // Timer
-        //private float breathTimer = 0;
-        public bool fullBreath = true;
+        
+        private bool fullBreath = true;
 
         public Item eqpHelmet, eqpArmor, eqpAmulet, eqpLegArmor, eqpGloves, eqpRing, eqpBoots;
         public Weapon eqpWpn;
-        public MagicBook[] eqpMagicBooks = new MagicBook[mageBookSlotCount];
+        public MagicBook[] eqpMagicBooks = new MagicBook[_MageBookHoldCapacity];
 
-        public GameObject levelUp;
-        //private HealthBar myHB;
-        //private ManaBar myMB;
-        //private LevelBar myLB;
-        //private BreathCounter myBC;
+        [SerializeField] private GameObject levelUpHalo;
+        
+        public int CurBreathLevel { get => curBreathLevel; set => curBreathLevel = value; }
+        public int BreathCapacity { get => breathCapacity; }
+        public  bool FullBreath { get => fullBreath; set => fullBreath = value; }
+        public int[] ReqExpForNextLevel { get => reqExpForNextLevel; }
 
+        private void Awake()
+        {
+            reqExpForNextLevel[0] = _IniReqExp;
+            
+            for (int i = 1; i < maxLevel - 1; i++)
+            {
+                reqExpForNextLevel[i] = Mathf.FloorToInt(reqExpForNextLevel[i - 1] * reqExpMult);
+            }
+            
+            currentHP = _HP;
+            currentMana = _Mana;
+            curBreathLevel = breathCapacity;
+        }
 
         void Start()
         {
-            //myHB = GameObject.Find("Main Canvas/HUD/Health Bar").GetComponent<HealthBar>();
-            //myMB = GameObject.Find("Main Canvas/HUD/Mana Bar").GetComponent<ManaBar>();
-            //myLB = GameObject.Find("Main Canvas/HUD/Level Bar").GetComponent<LevelBar>();
-            //myBC = GetComponentInChildren<BreathCounter>();
-
-            currentHP = _HP;
-            currentMana = _Mana;
-            currentBreath = _Breath;
-
-            //alttaki silincek
-            maxBreath = _Breath;
-
-            XPToNextLevel[0] = 100;
-
-            for (int i = 1; i < maxLevel - 1; i++)
-            {
-                XPToNextLevel[i] = Mathf.FloorToInt(XPToNextLevel[i - 1] * 1.10f);
-            }
-
             StartCoroutine(regen());
 
             calculateStats();
             //updateXP();
             //updateHealth();
             //updateMana();
-
-            //myBC.deActivateIndicator();
         }
 
 
@@ -82,49 +91,7 @@ namespace BerkeAksoyCode
             {
                 addXP(5);
             }
-
-            if (currentMana > 100)
-            {
-                //Debug.LogError("asdsad");
-            }
         }
-
-        /*public void flipBreathSprite()
-        {
-            if (myBC.isActiveAndEnabled)
-            {
-                myBC.transform.rotation = myBC.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
-            }
-        }
-
-        public void updateBreathUI()
-        {
-            if (!myBC.isActiveAndEnabled)
-            {
-                myBC.activateIndicator();
-            }
-
-            myBC.updateBreathIndicator(maxBreath, currentBreath);
-        }*/
-
-        /*public void refillBreath()
-        {
-            breathTimer += Time.deltaTime / 0.5f; // Divided by 0.5 to make it 0.5 seconds.
-
-            if (breathTimer > 0.5f)
-            {
-                breathTimer = 0;
-                currentBreath++;
-                Debug.Log("my breath: " + currentBreath);
-                updateBreathUI();
-            }
-
-            if (currentBreath >= maxBreath)
-            {
-                fullBreath = true;
-                myBC.deActivateIndicator();
-            }
-        }*/
 
         public void addXP(int XP)
         {
@@ -132,13 +99,13 @@ namespace BerkeAksoyCode
             totalGainedXP += XP;
             currentXP += XP;
 
-            if (currentXP >= XPToNextLevel[currentLevel - 1] && currentLevel + 1 != maxLevel)
+            if (currentXP >= reqExpForNextLevel[currentLevel - 1] && currentLevel + 1 != maxLevel)
             {
-                currentXP -= XPToNextLevel[currentLevel - 1];
+                currentXP -= reqExpForNextLevel[currentLevel - 1];
 
                 currentLevel++;
-                Instantiate(levelUp, transform.position, Quaternion.identity); // Create LevelUp gameObject for animating
-                                                                               //player.myLevelUp = GameObject.Find("/" + name + "/LevelUp");
+                LevelUpHalo halo = Instantiate(levelUpHalo, transform.position, Quaternion.identity).GetComponent<LevelUpHalo>();
+                halo.SetupLevelHalo(this.gameObject);
 
                 availablePoints += 3;
                 currentHP = maxHP;
@@ -159,7 +126,7 @@ namespace BerkeAksoyCode
             eqpAmulet = gameManager.itemEquipped[1];
             eqpWpn = (Weapon)gameManager.itemEquipped[2];
             eqpArmor = gameManager.itemEquipped[3];
-            for (int i = 0; i < mageBookSlotCount; i++)
+            for (int i = 0; i < _MageBookHoldCapacity; i++)
             {
                 eqpMagicBooks[i] = (MagicBook)GameManager.Instance.itemEquipped[i + 4];
             }
@@ -414,11 +381,11 @@ namespace BerkeAksoyCode
                 manaBuff += eqpBoots.itemData.afMaxMana;
             }
 
-            cVita = vita + _Vita + sVita;
-            cStr = str + _Str + sStr;
-            cDex = dex + _Dex + sDex;
-            cEnergy = energy + _Energy + sEnergy;
-            cIntel = intelligence + _Intel + sIntel;
+            cVita = vita + _DefVitality + sVita;
+            cStr = str + _DefStr + sStr;
+            cDex = dex + _DefDex + sDex;
+            cEnergy = energy + _DefEnergy + sEnergy;
+            cIntel = intelligence + _DefInt + sIntel;
 
             cPhyDmg = Mathf.FloorToInt((float)(phyDmg + _phyDmg) * _dmgMagnitude) + Mathf.FloorToInt((float)cStr / 4f);
             cMgcDmg = Mathf.FloorToInt((float)(mgcDmg + _mgcDmg) * _mgcMagnitude) + Mathf.FloorToInt((float)cIntel / 4f);
@@ -430,8 +397,8 @@ namespace BerkeAksoyCode
             cAttackSpeed = cAttackSpeed + aS - (float)cDex / 50f;
             cCastSpeed = _castSpeed + cS;
 
-            cCritMultiplier = _CritMultiplier + cM + (float)cStr / 30f;
-            cXPMultiplier = _XPMultiplier + eM;
+            cCritMultiplier = _DefCritMult + cM + (float)cStr / 30f;
+            cXPMultiplier = reqExpMult + eM;
 
             maxHP = hpBuff + _HP + Mathf.FloorToInt((float)cVita / 4f);
             maxMana = manaBuff + _Mana + Mathf.FloorToInt((float)cEnergy / 4f);
@@ -501,7 +468,7 @@ namespace BerkeAksoyCode
             {
                 switch (selectedAttribute)
                 {
-                    case "Vitality":
+                    case "_DefVitality":
                         sVita++;
                         // to Show
                         cVita++;

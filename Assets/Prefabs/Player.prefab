@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0993626dfa289f47bcb841d701c1bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0993626dfa289f47bcb841d701c1bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 713401558}
   - component: {fileID: 713401559}
   m_Layer: 5
-  m_Name: Breath Counter
+  m_Name: BreathUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 950453702}
   - component: {fileID: 950453701}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PlayerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0993626dfa289f47bcb841d701c1bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0993626dfa289f47bcb841d701c1bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0993626dfa289f47bcb841d701c1bcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1018,6 +1018,7 @@ GameObject:
   - component: {fileID: 8182160681789042152}
   - component: {fileID: 757801011677669888}
   - component: {fileID: 1331999938599632377}
+  - component: {fileID: 2428923509057058994}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1070,7 +1071,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6572569945786852460
 MonoBehaviour:
@@ -1106,8 +1107,6 @@ MonoBehaviour:
   currentMana: 0
   maxHP: 0
   maxMana: 0
-  currentBreath: 0
-  maxBreath: 0
   currentLevel: 1
   totalGainedXP: 0
   currentXP: 0
@@ -1141,7 +1140,6 @@ MonoBehaviour:
   tempCIntel: 0
   inSession: 0
   canUndo: 0
-  fullBreath: 1
   eqpHelmet: {fileID: 0}
   eqpArmor: {fileID: 0}
   eqpAmulet: {fileID: 0}
@@ -1154,7 +1152,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  levelUp: {fileID: 7478860603394155521, guid: 5b5879d7ee4910c478214525aef4f311, type: 3}
+  LevelUpHalo: {fileID: 0}
 --- !u!114 &5374928079145029618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,15 +1210,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d097b34aef9704a932cbac976cbd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 3
-  timeToJumpApex: 0.5
+  jumpHeight: 5
+  timeToJumpApex: 0.75
   upwardMoveMult: 1
-  downwardMoveMult: 2
+  downwardMoveMult: 4
   maxAirJumps: 1
   variableJumpHeight: 1
-  variableJumpVelocity: 1
   jumpCutOff: 2
-  fallSpeedLimit: 20
+  fallSpeedLimit: 13
+  hangTimeVelThreshold: 0.5
   coyoteTime: 0.1
   jumpBuffer: 0.1
 --- !u!114 &1331999938599632377
@@ -1241,12 +1239,24 @@ MonoBehaviour:
   jumpSFX: {fileID: 0}
   landSFX: {fileID: 0}
   squashAndStretch: 1
-  jumpSquashSettings: {x: 0.5, y: 1.1, z: 0.25}
-  landSquashSettings: {x: 1.1, y: 0.9, z: 0.25}
+  jumpSquashSettings: {x: 0.8, y: 1.1, z: 0.2}
+  landSquashSettings: {x: 1.1, y: 0.9, z: 0.2}
   landSqueezeMultiplier: 1
   jumpSqueezeMultiplier: 1
-  landDrop: 0.3
-  leanForward: 0
+  landDrop: 0.2
+  leanBackward: 0
   tiltChar: 1
-  maxTilt: -10
-  tiltSpeed: 20
+  maxTilt: 1.5
+  tiltSpeed: 15
+--- !u!114 &2428923509057058994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572569945786852458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f71a69dfa7f034097eeea15c8ed20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

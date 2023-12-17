@@ -45,12 +45,12 @@ namespace BerkeAksoyCode
             if (!isHit && health > 0 && !inCorpse)
             {
                 health -= value;
-                if (!myHB.activeInHierarchy && myHB != null)
+                if (!healthBar.activeInHierarchy && healthBar != null)
                 {
-                    myHB.SetActive(true);
+                    healthBar.SetActive(true);
                 }
 
-                myHB.GetComponent<HealthBar>().updateHealth(this);
+                healthBar.GetComponent<HealthBar>().updateHealth(this);
 
                 if (health > 0)
                 {
@@ -63,7 +63,7 @@ namespace BerkeAksoyCode
             if (!isHit && inCorpse && health > 0)
             {
                 health--;
-                myHB.GetComponent<HealthBar>().updateHealth(this);
+                healthBar.GetComponent<HealthBar>().updateHealth(this);
 
                 if (health > 0)
                 {
@@ -77,7 +77,7 @@ namespace BerkeAksoyCode
                 startInCorpse();
                 health = 4;
                 maxHealth = 3;
-                myHB.GetComponent<HealthBar>().updateHealth(this);
+                healthBar.GetComponent<HealthBar>().updateHealth(this);
 
                 animator.SetTrigger("Die");
                 knockback();
@@ -93,12 +93,11 @@ namespace BerkeAksoyCode
                     GetComponent<Dropper>().dropCoins();
                 }
 
-                if (myHB != null)
+                if (healthBar != null)
                 {
-                    myHB.SetActive(false);
+                    healthBar.SetActive(false);
                 }
-
-                player.stats.addXP(XPValue);
+                
                 StopAllCoroutines();
 
                 if (GetComponent<CapsuleCollider2D>())

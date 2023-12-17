@@ -6,7 +6,7 @@ namespace BerkeAksoyCode
 {
     public class EmotionalStateDefiner : MonoBehaviour
     {
-        // Start is called before the first frame update
+        private bool feared, confused;
         void Start()
         {
         

@@ -41,7 +41,7 @@ namespace BerkeAksoyCode
 
         private float normalizeXP(CharStats playerStats)
         {
-            return (float)playerStats.currentXP / (float)playerStats.XPToNextLevel[playerStats.currentLevel - 1];
+            return (float)playerStats.currentXP / (float)playerStats.ReqExpForNextLevel[playerStats.currentLevel - 1];
         }
     }
 }

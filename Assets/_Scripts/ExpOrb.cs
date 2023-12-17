@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace BerkeAksoyCode
 {
@@ -12,15 +14,20 @@ namespace BerkeAksoyCode
         private int expValue;
         private float moveSpeed = 4f;
 
-        public int ExpValue { get => expValue; set => expValue = value; }
+        public int ExpValue { get => expValue;
+            set => expValue = value;}
+
+        private void Awake()
+        {
+            moveSpeed = Random.Range(4f, 6f);
+        }
 
         void Start()
         {
             player = GameObject.Find("Player").GetComponent<Player>();
-            moveSpeed = Random.Range(4f, 6f);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }

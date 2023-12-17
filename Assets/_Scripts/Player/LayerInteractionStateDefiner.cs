@@ -13,6 +13,7 @@ namespace BerkeAksoyCode
         private bool onGround, inWater;
         [SerializeField] private float groundRayLength = 0.2f, waterRayLength = 0.2f;
         private CharLayerInteractionStatus charLayerIntStatus;
+        private Vector3 curPos;
 
         public enum CharLayerInteractionStatus
         {
@@ -24,13 +25,14 @@ namespace BerkeAksoyCode
         }
         private void FixedUpdate()
         {
+            curPos = transform.position;
             CheckLayerInteractionState();
         }
 
         private void CheckLayerInteractionState()
         {
-            onGround = Physics2D.Raycast(transform.position - footOffset, Vector2.down, groundRayLength, groundLayer) || Physics2D.Raycast(transform.position + footOffset, Vector2.down, groundRayLength, groundLayer);
-            inWater = Physics2D.Raycast(transform.position, Vector2.down, waterRayLength, waterLayer);
+            onGround = Physics2D.Raycast(curPos - footOffset, Vector2.down, groundRayLength, groundLayer) || Physics2D.Raycast(transform.position + footOffset, Vector2.down, groundRayLength, groundLayer);
+            inWater = Physics2D.Raycast(curPos, Vector2.down, waterRayLength, waterLayer);
 
             if (onGround && !inWater && charLayerIntStatus != CharLayerInteractionStatus.OnDryLand) // On dry land
             {

@@ -5,17 +5,22 @@ using UnityEngine;
 
 namespace BerkeAksoyCode
 {
-    public abstract class Enemy : MonoBehaviour, IDamagable
+    public abstract class Enemy : MonoBehaviour, IDamagable, IExpGainable
     {
 
         protected Rigidbody2D myRigidbody2D;
         protected CapsuleCollider2D myBody2D;
         protected BoxCollider2D myFeet2D;
-        protected GameObject myEyes, myHB;
+        protected GameObject myEyes, healthBar;
+        
         protected float movementSpeed = 2f, newCombatTime = 2f, idleWaitTime = 2f, timeToDestroy = 1f, jumpForce = 6f;
+        [SerializeField]
         protected float canSeeX = 6f, canSeeY = 0.5f, canAttackX = 6f, canAttackY = 2f;
-        protected int health = 15, spellId = 0, maxHealth = 15, XPValue = 50;
+        
+        protected int health = 15, spellId = 0, maxHealth = 15, expWorth = 50;
+        
         protected bool inCombat = false, isHit = false, isAlive = true;
+        
         protected Animator animator;
         protected GameManager gm;
         protected Player player;
@@ -28,7 +33,6 @@ namespace BerkeAksoyCode
             gm.EnemyList.Remove(this);
         }
 
-
         protected virtual void componentGetter()
         {
             myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -36,13 +40,13 @@ namespace BerkeAksoyCode
             myFeet2D = GetComponent<BoxCollider2D>();
             animator = GetComponent<Animator>();
             myEyes = GameObject.Find("/" + name + "/Eyes");
-            myHB = GameObject.Find("/" + name + "/Canvas/Health Bar");
+            healthBar = GameObject.Find("/" + name + "/Canvas/Health Bar");
             gm = GameManager.Instance;
             player = GameObject.Find("Player").GetComponent<Player>();
 
-            if (myHB != null)
+            if (healthBar != null)
             {
-                myHB.SetActive(false);
+                healthBar.SetActive(false);
             }
 
             gm.EnemyList.Add(this);
@@ -62,16 +66,16 @@ namespace BerkeAksoyCode
 
         protected virtual bool checkRayCast()
         {
-
+            Vector3 eyePos = myEyes.transform.position;
+            Vector3 playerPos = player.transform.position;
             RaycastHit2D[] hits = new RaycastHit2D[2];
 
-            hits[0] = Physics2D.Linecast(myEyes.transform.position, player.transform.position, 1 << LayerMask.NameToLayer("Player"));
-            hits[1] = Physics2D.Linecast(myEyes.transform.position, player.transform.position, 1 << LayerMask.NameToLayer("Ground"));
+            hits[0] = Physics2D.Linecast(eyePos, playerPos, 1 << LayerMask.NameToLayer("Player"));
+            hits[1] = Physics2D.Linecast(eyePos, playerPos, 1 << LayerMask.NameToLayer("Ground"));
 
             //Debug.DrawLine(myEyes.transform.position, player.transform.position, Color.red);
-
-            // Player Seen
-            if (hits[0].collider != null && hits[1].collider == null)
+            
+            if (hits[0].collider != null && hits[1].collider == null) // Player Seen
             {
                 //Debug.Log(this.tag + " PlayerSeen");
                 return true;
@@ -85,7 +89,7 @@ namespace BerkeAksoyCode
             float distanceY = getYDistanceToPlayer();
             float distanceX = getXDistanceToPlayer();
 
-            if ((Mathf.Abs(distanceX) < canSeeX && Mathf.Abs(distanceY) < canSeeY && checkRayCast()) || isHit) // Enemy can see player && raycast not hits any ground item
+            if ((Mathf.Abs(distanceX) < canSeeX && Mathf.Abs(distanceY) < canSeeY && checkRayCast()) || isHit) // Enemy can see the player clearly
             {
                 if (!inCombat) // Walk enough to attack
                 {
@@ -102,6 +106,7 @@ namespace BerkeAksoyCode
                         caster.transform.localScale = transform.localScale;
                     }
                 }
+                
                 if (!inCombat && Mathf.Abs(distanceX) < canAttackX && Mathf.Abs(distanceY) < canAttackY) // Enemy can attack
                 {
                     inCombat = true;
@@ -116,7 +121,7 @@ namespace BerkeAksoyCode
                 {
                     case "Patroller":
                         break;
-                    default:
+                    default: // Stop approaching
                         animator.SetBool("isMoving", false);
                         break;
                 }
@@ -158,9 +163,9 @@ namespace BerkeAksoyCode
         {
             transform.localScale = new Vector2(-transform.localScale.x, 1f);
 
-            if (myHB != null)
+            if (healthBar != null)
             {
-                myHB.transform.rotation = myHB.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
+                healthBar.transform.rotation = healthBar.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
             }
 
         }
@@ -193,12 +198,12 @@ namespace BerkeAksoyCode
                     a.GetComponent<TextMeshPro>().text = "Missed!";
                 }
 
-                if (!myHB.activeInHierarchy && myHB != null)
+                if (!healthBar.activeInHierarchy && healthBar != null)
                 {
-                    myHB.SetActive(true);
+                    healthBar.SetActive(true);
                 }
 
-                myHB.GetComponent<HealthBar>().updateHealth(this);
+                healthBar.GetComponent<HealthBar>().updateHealth(this);
                 if (GameObject.Find("/" + name + "/Blood Particles"))
                 {
                     StartCoroutine(bloodParticle());
@@ -217,16 +222,16 @@ namespace BerkeAksoyCode
 
             if (health <= 0 && isAlive)
             {
-                createExpOrb();
+                CreateExpOrb();
 
                 isAlive = false;
                 StopAllCoroutines();
                 animator.SetTrigger("Die");
                 movementSpeed = 0;
 
-                if (myHB != null)
+                if (healthBar != null)
                 {
-                    myHB.SetActive(false);
+                    healthBar.SetActive(false);
                 }
 
                 if (GetComponent<Dropper>())
@@ -248,10 +253,10 @@ namespace BerkeAksoyCode
             }
         }
 
-        private void createExpOrb()
+        private void CreateExpOrb()
         {
-            int orbCount = XPValue / 10;
-            int lastOrbValue = XPValue % 10;
+            int orbCount = expWorth / 10;
+            int lastOrbValue = expWorth % 10;
 
             if (lastOrbValue > 0)
             {
@@ -260,19 +265,18 @@ namespace BerkeAksoyCode
 
             for (int i = 0; i < orbCount; i++)
             {
-                GameObject eO = Instantiate(expOrb, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-0.4f, 1.6f), 0), Quaternion.identity);
+                GameObject newOb = Instantiate(expOrb, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-0.4f, 1.6f), 0), Quaternion.identity);
+                ExpOrb newExpOrb = newOb.GetComponent<ExpOrb>();
 
                 if (lastOrbValue > 0 && i == orbCount - 1)
                 {
-                    eO.GetComponent<ExpOrb>().ExpValue = lastOrbValue;
+                    newExpOrb.ExpValue = lastOrbValue;
                 }
                 else
                 {
-                    eO.GetComponent<ExpOrb>().ExpValue = 10;
+                    newExpOrb.ExpValue = 10;
                 }
             }
-
-            //player.stats.addXP(XPValue);
         }
 
         protected virtual void attack()

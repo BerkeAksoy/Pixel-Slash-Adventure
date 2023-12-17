@@ -249,9 +249,9 @@ namespace BerkeAksoyCode
                     GetComponent<Dropper>().dropItem();
                     GetComponent<Dropper>().dropCoins();
                 }
-                isAlive = false;
 
-                player.stats.addXP(XPValue);
+                isAlive = false;
+                
                 StopAllCoroutines();
                 animator.SetTrigger("Die");
                 movementSpeed = 0;

@@ -13,15 +13,15 @@ namespace BerkeAksoyCode {
         private bool facingRight = true, pressingMoveKey;
         private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta; // friction = 0f;
 
-        [SerializeField, Range(0f, 50f)]
-        [Tooltip("See the code to understand how to calculate")]
-        private float maxGroundTurnSpeed = 50f, maxWaterTurnSpeed = 30f, maxAirTurnSpeed = 50f,
-            maxGroundAcceleration = 50f, maxGroundDeceleration = 50f,
+        [SerializeField, Tooltip("See the code to understand how to calculate"), Range(0f, 50f)]
+        private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 32f, maxAirTurnSpeed = 12f,
+            maxGroundAcceleration = 40f, maxGroundDeceleration = 40f,
             maxWaterAcceleration = 50f, maxWaterDeceleration = 50f,
-            maxAirAcceleration = 50f, maxAirDeceleration = 50f;
+            maxAirAcceleration = 12f, maxAirDeceleration = 8f;
 
         [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
         [SerializeField] private bool useAcceleration, useAirAssist;
+        
         private bool feared;
         private float climbingSpeed;
 
@@ -147,6 +147,11 @@ namespace BerkeAksoyCode {
                 transform.localScale = new Vector2(-1f, 1f);
                 facingRight = false;
             }
+        }
+
+        public bool isFacingRight()
+        {
+            return facingRight;
         }
 
         /*private void Swim()
