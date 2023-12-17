@@ -10,8 +10,8 @@ namespace BerkeAksoyCode {
         private LayerInteractionStateDefiner layerIntStatusDefiner;
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
         private Vector2 curVelocity, desiredVelocity;
-        private bool facingRight = true, pressingMoveKey;
-        private float horizontalInput = 0, acceleration, deceleration, turnSpeed, speedDelta,  friction = 0f;
+        private bool facingRight = true, pressingMoveHoriKey, pressingMoveUp;
+        private float horizontalInput = 0f, verticalInput = 0f, acceleration, deceleration, turnSpeed, speedDelta,  friction = 0f;
 
         [SerializeField, Tooltip("See the code to understand how to calculate"), Range(0f, 50f)]
         private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 32f, maxAirTurnSpeed = 12f,
@@ -40,11 +40,24 @@ namespace BerkeAksoyCode {
         private void Update()
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
-            pressingMoveKey = horizontalInput != 0 ? true : false;
+            pressingMoveHoriKey = horizontalInput != 0 ? true : false;
 
             desiredVelocity = new Vector2(horizontalInput, 0f) * Mathf.Max(maxSpeed - friction, 0f);
+            
+            if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.Swimming ||
+                charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.WaterWalking)
+            {
+                verticalInput = Input.GetAxis("Vertical");
+                pressingMoveUp = verticalInput > 0 ? true : false;
+                float verticalSpeed = 0f;
+                if (pressingMoveUp)
+                {
+                    verticalSpeed = 1f * Mathf.Max(maxSpeed - friction, 0f);
+                }
+                desiredVelocity = new Vector2(desiredVelocity.x, verticalSpeed);
+            }
 
-            if (pressingMoveKey)
+            if (pressingMoveHoriKey)
             {
                 FlipSprite();
             }
@@ -66,7 +79,7 @@ namespace BerkeAksoyCode {
 
         private void CalculateDeltaSpeed()
         {
-            if (pressingMoveKey)
+            if (pressingMoveHoriKey)
             {
                 // If the sign of our horizontalInput doesn't match our movement, it means we are tring to turn.
                 if (Mathf.Sign(horizontalInput) != Mathf.Sign(curVelocity.x))
@@ -85,6 +98,11 @@ namespace BerkeAksoyCode {
             {
                 speedDelta = deceleration * Time.fixedDeltaTime;
                 //speedDelta = maxSpeed * GetAccerelationPercent(deceleration);
+            }
+
+            if (!pressingMoveHoriKey && pressingMoveUp)
+            {
+                speedDelta = acceleration * Time.fixedDeltaTime;
             }
         }
 
@@ -131,13 +149,31 @@ namespace BerkeAksoyCode {
             CalculateDeltaSpeed();
 
             curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
-            //myRB2D.velocity = curVelocity;
-            myRB2D.velocity = new Vector2(curVelocity.x, myRB2D.velocity.y);
+            
+            if (desiredVelocity.y != 0)
+            {
+                curVelocity.y = Mathf.MoveTowards(myRB2D.velocity.y, desiredVelocity.y, speedDelta);
+                myRB2D.velocity = new Vector2(curVelocity.x, curVelocity.y);
+            }
+            else
+            {
+                myRB2D.velocity = new Vector2(curVelocity.x, myRB2D.velocity.y);
+            }
         }
 
         private void RunWithoutAcc()
         {
             curVelocity.x = desiredVelocity.x;
+            
+            if (desiredVelocity.y != 0)
+            {
+                curVelocity.y = desiredVelocity.y;
+                myRB2D.velocity = new Vector2(curVelocity.x, curVelocity.y);
+            }
+            else
+            {
+                myRB2D.velocity = new Vector2(curVelocity.x, myRB2D.velocity.y);
+            }
             //myRB2D.velocity = curVelocity;
         }
 
