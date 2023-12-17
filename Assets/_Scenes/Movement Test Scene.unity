@@ -10413,6 +10413,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 757801011677669888, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
+        type: 3}
+      propertyPath: waterVerFric
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6572569945786852458, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: m_Name

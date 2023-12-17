@@ -12,6 +12,7 @@ namespace BerkeAksoyCode
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
         private MovementJuice movementJuice;
         private Vector2 curVelocity;
+        private float friction = 0f;
 
         [Header("Jumping Stats")]
         [SerializeField, Range(1f, 10f)]
@@ -41,13 +42,18 @@ namespace BerkeAksoyCode
         [Tooltip("Adds as much as lost jump velocity, player needs to be experienced to achieve highest double jump. Switching off is not recommended and it is experimental only.")]
         private bool variableJumpVelocity = true;
 
+        [Header("Variables")]
         [SerializeField, Range(1f, 10f)]
         [Tooltip("Gravity multiplier when you let go of jump")]
         private float jumpCutOff;
 
         [SerializeField, Range(1f, 40f)]
         [Tooltip("The fastest speed the character can fall")]
-        private float fallSpeedLimit =  20f;
+        private float fallSpeedLimit = 20f;
+        
+        [SerializeField, Range(0f, 20f)]
+        [Tooltip("Reduces the fastest speed that the character can fall")]
+        private float waterVerFric = 4f, airVerFric = 0f;
         
         [SerializeField, Range(0f, 10f)]
         [Tooltip("At which velocity should hang time start?")]
@@ -108,7 +114,7 @@ namespace BerkeAksoyCode
 
             checkJumpState();
 
-            DefineGravityMultiplier();
+            DefineGravityMultAndFric();
             CalculateGravityScale();
             if (desiredJump)
             {
@@ -135,20 +141,29 @@ namespace BerkeAksoyCode
 
         private void ApplyVelocity()
         {
-            curVelocity.y = Mathf.Clamp(curVelocity.y, -fallSpeedLimit, 200);
+            curVelocity.y = Mathf.Clamp(curVelocity.y, -Mathf.Max(fallSpeedLimit - friction, 1f), 200);
             myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y); // We are setting the y velocity to implement jump and to limit falling speed. Gravity handled by unity physics2D.
         }
 
-        private void DefineGravityMultiplier()
+        private void DefineGravityMultAndFric()
         {
+            friction = airVerFric;
+            
+            if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand)
+            {
+                gravMultiplier = defaultGravityScale;
+                return;
+            }
+                
+            if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.Swimming || charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.WaterWalking)
+            {
+                gravMultiplier = defaultGravityScale;
+                friction = waterVerFric;
+                return;
+            }
+            
             if (myRB2D.velocity.y > 0.01f) // If the char is going up somehow, maybe he is on a moving platform
             {
-                if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand || charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.Swimming)
-                {
-                    gravMultiplier = defaultGravityScale;
-                    return;
-                }
-
                 if (variableJumpHeight)
                 {
                     if (pressingJump)
@@ -167,28 +182,21 @@ namespace BerkeAksoyCode
 
                 if (myRB2D.velocity.y < hangTimeVelThreshold)
                 {
-                    gravMultiplier /= 2;
+                    gravMultiplier = gravMultiplier/2f;
                 }
             }
             else if (myRB2D.velocity.y < -0.01f) // If the char is going down somehow, maybe he is on a moving platform
             {
-                if (charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.OnDryLand || charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.Swimming)
-                {
-                    gravMultiplier = defaultGravityScale;
-                }
-                else
-                {
-                    gravMultiplier = downwardMoveMult;
-                }
+                gravMultiplier = downwardMoveMult;
                 
                 if (myRB2D.velocity.y > -hangTimeVelThreshold)
                 {
-                    gravMultiplier /= 2;
+                    gravMultiplier = gravMultiplier/2f;
                 }
             }
             else
             {
-                gravMultiplier = defaultGravityScale;
+                gravMultiplier = gravMultiplier/2f;
             }
         }
 

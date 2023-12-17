@@ -28,7 +28,6 @@ public class BreathUI : MonoBehaviour
         int slotValue = maxBreath / numberOfSlots;
 
         int activeBreathSlots = numberOfSlots - (maxBreath - curBreath) / slotValue;
-        Debug.Log("activeBreathSlots " + activeBreathSlots);
 
         for(int i = 0; i < numberOfSlots; i++)
         {
