@@ -10,8 +10,8 @@ namespace BerkeAksoyCode {
         private LayerInteractionStateDefiner layerIntStatusDefiner;
         private LayerInteractionStateDefiner.CharLayerInteractionStatus charLayerIntStatus;
         private Vector2 curVelocity, desiredVelocity;
-        private bool facingRight = true, pressingMoveHoriKey, pressingMoveUp;
-        private float horizontalInput = 0f, verticalInput = 0f, acceleration, deceleration, turnSpeed, speedDelta,  friction = 0f;
+        private bool facingRight = true, pressingMoveHoriKey, pressingMoveVerKey;
+        private float horizontalInput = 0f, verticalInput = 0f, acceleration, deceleration, turnSpeed, speedDeltaX, speedDeltaY,  friction = 0f;
 
         [SerializeField, Tooltip("See the code to understand how to calculate"), Range(0f, 50f)]
         private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 32f, maxAirTurnSpeed = 12f,
@@ -48,13 +48,29 @@ namespace BerkeAksoyCode {
                 charLayerIntStatus == LayerInteractionStateDefiner.CharLayerInteractionStatus.WaterWalking)
             {
                 verticalInput = Input.GetAxis("Vertical");
-                pressingMoveUp = verticalInput > 0 ? true : false;
+                pressingMoveVerKey = verticalInput != 0 ? true : false;
+                
                 float verticalSpeed = 0f;
-                if (pressingMoveUp)
+                if (pressingMoveVerKey)
                 {
-                    verticalSpeed = 1f * Mathf.Max(maxSpeed - friction, 0f);
+                    verticalSpeed = verticalInput * Mathf.Max(maxSpeed - friction, 0f);
                 }
+
+                if (verticalInput < 0)
+                {
+                    CharJumpController.MinimumFallSpeed = Mathf.Max(maxSpeed - friction, 1f);
+                }
+                else
+                {
+                    CharJumpController.MinimumFallSpeed = 1f;
+                }
+                
                 desiredVelocity = new Vector2(desiredVelocity.x, verticalSpeed);
+
+                if (pressingMoveHoriKey && pressingMoveVerKey)
+                {
+                    desiredVelocity = new Vector2(desiredVelocity.x, verticalSpeed) / Mathf.Sqrt(2);
+                }
             }
 
             if (pressingMoveHoriKey)
@@ -81,28 +97,38 @@ namespace BerkeAksoyCode {
         {
             if (pressingMoveHoriKey)
             {
-                // If the sign of our horizontalInput doesn't match our movement, it means we are tring to turn.
-                if (Mathf.Sign(horizontalInput) != Mathf.Sign(curVelocity.x))
+                if (Mathf.Sign(horizontalInput) != Mathf.Sign(curVelocity.x)) // If the sign of our horizontalInput doesn't match our movement, it means we are trying to turn.
                 {
                     // Buradaki secim tamamen tercihe baglidir. Her bir framede belli bir hiz artisi mi istiyorsun yoksa max hiza ne kadar surede ulasacagina gore mi hesaplamak istiyorsun.
-                    speedDelta = turnSpeed * Time.fixedDeltaTime; // Her bir fixed framede artacak hiz birimini verir. turnSpeed degiskeninin alabilecegi en yuksek deger, sadece max hiza ulasma suresini kisaltacaktir. Max hiza ulasma suresi, max hizin ne olduguna baglidir.
+                    speedDeltaX = turnSpeed * Time.fixedDeltaTime; // Her bir fixed framede artacak hiz birimini verir. turnSpeed degiskeninin alabilecegi en yuksek deger, sadece max hiza ulasma suresini kisaltacaktir. Max hiza ulasma suresi, max hizin ne olduguna baglidir.
                     //speedDelta = maxSpeed * GetAccerelationPercent(turnSpeed); // Her bir fixed framede artacak hiz birimi, max hizin yuzde kaci kacar artacagidir, yani burada max hiza tek karede ulasmak icin turn speed degiskeninin en fazla alabilecegi degere esitlenmesi yeterlidir.
                 }
                 else // If they match, it means we're simply running along and so should use the acceleration stat
                 {
-                    speedDelta = acceleration * Time.fixedDeltaTime;
+                    speedDeltaX = acceleration * Time.fixedDeltaTime;
                     //speedDelta = maxSpeed * GetAccerelationPercent(acceleration);
                 }
             }
             else // And if we're not pressing a direction at all, use the deceleration stat
             {
-                speedDelta = deceleration * Time.fixedDeltaTime;
+                speedDeltaX = deceleration * Time.fixedDeltaTime;
                 //speedDelta = maxSpeed * GetAccerelationPercent(deceleration);
             }
 
-            if (!pressingMoveHoriKey && pressingMoveUp)
+            if (pressingMoveVerKey)
             {
-                speedDelta = acceleration * Time.fixedDeltaTime;
+                if (Mathf.Sign(verticalInput) != Mathf.Sign(curVelocity.y))
+                {
+                    speedDeltaY = turnSpeed * Time.fixedDeltaTime;
+                }
+                else
+                {
+                    speedDeltaY = acceleration * Time.fixedDeltaTime;
+                }
+            }
+            else
+            {
+                speedDeltaY = deceleration * Time.fixedDeltaTime;
             }
         }
 
@@ -148,11 +174,12 @@ namespace BerkeAksoyCode {
             SetAccProperties();
             CalculateDeltaSpeed();
 
-            curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDelta); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
+            curVelocity.x = Mathf.MoveTowards(curVelocity.x, desiredVelocity.x, speedDeltaX); // Given enough time, curVelocity.x will be equal to desiredVelocity.x even if the speedDelta is greater than the difference between them.
+            //curVelocity.y = Mathf.MoveTowards(myRB2D.velocity.y, desiredVelocity.y, speedDelta); // burayi bi dinlendikten sonra dusun
             
             if (desiredVelocity.y != 0)
             {
-                curVelocity.y = Mathf.MoveTowards(myRB2D.velocity.y, desiredVelocity.y, speedDelta);
+                curVelocity.y = Mathf.MoveTowards(myRB2D.velocity.y, desiredVelocity.y, speedDeltaY);
                 myRB2D.velocity = new Vector2(curVelocity.x, curVelocity.y);
             }
             else

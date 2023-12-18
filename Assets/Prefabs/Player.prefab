@@ -1191,17 +1191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxGroundTurnSpeed: 32
-  maxWaterTurnSpeed: 32
+  maxWaterTurnSpeed: 21
   maxAirTurnSpeed: 12
   maxGroundAcceleration: 40
   maxGroundDeceleration: 40
-  maxWaterAcceleration: 30
-  maxWaterDeceleration: 50
+  maxWaterAcceleration: 25
+  maxWaterDeceleration: 35
   maxAirAcceleration: 12
   maxAirDeceleration: 8
   maxSpeed: 6
   groundFriction: 0
-  waterFriction: 4
+  waterFriction: 3
   airFriction: 0
   useAcceleration: 1
   useAirAssist: 1
@@ -1225,6 +1225,8 @@ MonoBehaviour:
   variableJumpHeight: 1
   jumpCutOff: 2
   fallSpeedLimit: 13
+  waterVerFric: 11.5
+  airVerFric: 0
   hangTimeVelThreshold: 0.5
   coyoteTime: 0.1
   jumpBuffer: 0.1

@@ -75,7 +75,10 @@ namespace BerkeAksoyCode
         private float coyoteTimeCounter = 0, jumpBufferCounter = 0;
         private bool pressingJump, currentlyJumping, desiredJump;
 
+        private static float minimumFallSpeed = 1f; // It is changed by vertical movement while swimming down to exceed terminal velocity.
+
         public LayerInteractionStateDefiner.CharLayerInteractionStatus CharLayerIntStatus { get => charLayerIntStatus;}
+        public static float MinimumFallSpeed { get => minimumFallSpeed; set => minimumFallSpeed = value; }
 
         private void Awake()
         {
@@ -141,7 +144,7 @@ namespace BerkeAksoyCode
 
         private void ApplyVelocity()
         {
-            curVelocity.y = Mathf.Clamp(curVelocity.y, -Mathf.Max(fallSpeedLimit - friction, 1f), 200);
+            curVelocity.y = Mathf.Clamp(curVelocity.y, -Mathf.Max(fallSpeedLimit - friction, minimumFallSpeed), 200);
             myRB2D.velocity = new Vector2(myRB2D.velocity.x, curVelocity.y); // We are setting the y velocity to implement jump and to limit falling speed. Gravity handled by unity physics2D.
         }
 
@@ -162,7 +165,7 @@ namespace BerkeAksoyCode
                 return;
             }
             
-            if (myRB2D.velocity.y > 0.01f) // If the char is going up somehow, maybe he is on a moving platform
+            if (myRB2D.velocity.y > 0.01f) // On air // If the char is going up somehow, maybe he is on a moving platform
             {
                 if (variableJumpHeight)
                 {
