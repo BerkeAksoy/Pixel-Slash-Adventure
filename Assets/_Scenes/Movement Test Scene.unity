@@ -10413,11 +10413,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 757801011677669888, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: waterVerFric
-      value: 11.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6572569945786852458, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
         type: 3}
       propertyPath: m_Name
@@ -10472,26 +10467,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: waterFriction
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: maxWaterTurnSpeed
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: maxWaterAcceleration
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182160681789042152, guid: 36eaa0f2ba0380b4dbcb9a55eea7cef4,
-        type: 3}
-      propertyPath: maxWaterDeceleration
-      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

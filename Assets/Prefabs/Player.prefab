@@ -1199,9 +1199,9 @@ MonoBehaviour:
   maxWaterDeceleration: 35
   maxAirAcceleration: 12
   maxAirDeceleration: 8
-  maxSpeed: 6
+  maxSpeed: 7
   groundFriction: 0
-  waterFriction: 3
+  waterFriction: 4.5
   airFriction: 0
   useAcceleration: 1
   useAirAssist: 1

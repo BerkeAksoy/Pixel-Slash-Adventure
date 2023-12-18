@@ -6,7 +6,7 @@ namespace BerkeAksoyCode
 {
     public class MovementJuice : MonoBehaviour
     {
-        private CharHorizontalController moveScript;
+        private CharHoriVerController moveScript;
         private CharJumpController jumpScript;
         private Animator animator;
         private GameObject characterSprite;
@@ -51,12 +51,12 @@ namespace BerkeAksoyCode
 
         private void Awake()
         {
-            //if (leanBackward) { maxTilt = -maxTilt; }
+            if (leanBackward) { maxTilt = -maxTilt; }
         }
 
         void Start()
         {
-            moveScript = GetComponent<CharHorizontalController>();
+            moveScript = GetComponent<CharHoriVerController>();
             jumpScript = GetComponent<CharJumpController>();
             animator = GetComponentInChildren<Animator>();
             characterSprite = GetComponentInChildren<SpriteRenderer>().gameObject;
@@ -80,7 +80,7 @@ namespace BerkeAksoyCode
             if (moveScript.CurVelocity.x != 0) // See which direction the character is currently running towards, and tilt in that direction
             {
                 directionToTilt = Mathf.Sign(moveScript.CurVelocity.x);
-                if (leanBackward) { directionToTilt = -directionToTilt; }
+                //if (leanBackward) { directionToTilt = -directionToTilt; }
             }
 
             //Create a vector that the character will tilt towards

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BerkeAksoyCode {
-    public class CharHorizontalController : MonoBehaviour
+    public class CharHoriVerController : MonoBehaviour
     {
         private Rigidbody2D myRB2D;
         private LayerInteractionStateDefiner layerIntStatusDefiner;
@@ -14,16 +14,18 @@ namespace BerkeAksoyCode {
         private float horizontalInput = 0f, verticalInput = 0f, acceleration, deceleration, turnSpeed, speedDeltaX, speedDeltaY,  friction = 0f;
 
         [SerializeField, Tooltip("See the code to understand how to calculate"), Range(0f, 50f)]
-        private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 32f, maxAirTurnSpeed = 12f,
+        private float maxGroundTurnSpeed = 32f, maxWaterTurnSpeed = 21f, maxAirTurnSpeed = 12f,
             maxGroundAcceleration = 40f, maxGroundDeceleration = 40f,
-            maxWaterAcceleration = 20f, maxWaterDeceleration = 30f,
+            maxWaterAcceleration = 25f, maxWaterDeceleration = 35f,
             maxAirAcceleration = 12f, maxAirDeceleration = 8f;
 
-        [SerializeField, Range(0f, 20f)] private float maxSpeed = 10f;
+        [SerializeField, Range(0f, 20f)]
+        private float maxSpeed = 7f;
 
         [SerializeField, Tooltip("Reduces max speed"), Range(0f, 10f)]
-        private float groundFriction = 0f, waterFriction = 4f, airFriction = 0f; 
-        [SerializeField] private bool useAcceleration, useAirAssist;
+        private float groundFriction = 0f, waterFriction = 4.5f, airFriction = 0f; 
+        [SerializeField]
+        private bool useAcceleration, useAirAssist;
         
         private bool feared;
         private float climbingSpeed;
@@ -155,9 +157,19 @@ namespace BerkeAksoyCode {
             }
             else if (charLayerIntStatus.Equals(LayerInteractionStateDefiner.CharLayerInteractionStatus.OnAir))
             {
-                acceleration = maxAirAcceleration;
-                deceleration = maxAirDeceleration;
-                turnSpeed = maxAirTurnSpeed;
+                if (useAirAssist)
+                {
+                    acceleration = maxAirAcceleration;
+                    deceleration = maxAirDeceleration;
+                    turnSpeed = maxAirTurnSpeed;
+                }
+                else
+                {
+                    acceleration = 0f;
+                    deceleration = 0f;
+                    turnSpeed = 0f;
+                }
+
                 friction = airFriction;
             }
             else // Default case
